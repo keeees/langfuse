@@ -26,7 +26,8 @@ import {
   type InAppAgentMessageRole,
 } from "./InAppAgentMessage";
 
-const AUTO_SCROLL_THRESHOLD_PX = 200;
+const AUTO_SCROLL_THRESHOLD_PX = 50;
+const SCROLL_DIRECTION_TOLERANCE_PX = 1;
 
 export type InAppAgentWindowMessage = {
   id: string;
@@ -85,11 +86,8 @@ export function InAppAgentWindow(props: InAppAgentWindowProps) {
     zIndex,
   } = props;
   const viewportRef = useRef<HTMLDivElement>(null);
-  const scrollPositionRef = useRef<{
-    scrollHeight: number;
-    scrollTop: number;
-    clientHeight: number;
-  } | null>(null);
+  const isAutoScrollAttachedRef = useRef(true);
+  const previousScrollTopRef = useRef(0);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [input, setInput] = useState("");
 
@@ -100,23 +98,20 @@ export function InAppAgentWindow(props: InAppAgentWindowProps) {
       return;
     }
 
-    const scrollPosition = scrollPositionRef.current;
-    const isNearBottom =
-      !scrollPosition ||
-      scrollPosition.scrollHeight -
-        scrollPosition.scrollTop -
-        scrollPosition.clientHeight <=
-        AUTO_SCROLL_THRESHOLD_PX;
-
-    if (!isNearBottom) {
+    if (!isAutoScrollAttachedRef.current) {
       return;
     }
 
     viewport.scrollTo({
       top: viewport.scrollHeight,
-      behavior: "smooth",
+      behavior: "auto",
     });
   }, [messages]);
+
+  useEffect(() => {
+    isAutoScrollAttachedRef.current = true;
+    previousScrollTopRef.current = 0;
+  }, [selectedConversationId]);
 
   useEffect(() => {
     const input = inputRef.current;
@@ -245,11 +240,22 @@ export function InAppAgentWindow(props: InAppAgentWindowProps) {
           className="min-h-0 flex-1 overflow-y-auto"
           onScroll={(event) => {
             const viewport = event.currentTarget;
-            scrollPositionRef.current = {
-              scrollHeight: viewport.scrollHeight,
-              scrollTop: viewport.scrollTop,
-              clientHeight: viewport.clientHeight,
-            };
+            const distanceFromBottom =
+              viewport.scrollHeight -
+              viewport.scrollTop -
+              viewport.clientHeight;
+            const isNearBottom = distanceFromBottom <= AUTO_SCROLL_THRESHOLD_PX;
+            const scrolledUp =
+              viewport.scrollTop <
+              previousScrollTopRef.current - SCROLL_DIRECTION_TOLERANCE_PX;
+
+            if (scrolledUp && !isNearBottom) {
+              isAutoScrollAttachedRef.current = false;
+            } else if (isNearBottom) {
+              isAutoScrollAttachedRef.current = true;
+            }
+
+            previousScrollTopRef.current = viewport.scrollTop;
           }}
         >
           <div

@@ -11,6 +11,8 @@ export const RateLimitResource = z.enum([
   "datasets",
   "trace-delete",
   "score-delete",
+  "in-app-agent-run-hourly",
+  "in-app-agent-run-daily",
 ]);
 
 // result of the rate limit check.

@@ -299,6 +299,18 @@ const getPlanBasedRateLimitConfig = (
             points: 50,
             durationInSec: 86400, // 50 requests per day
           };
+        case "in-app-agent-run-hourly":
+          return {
+            resource: "in-app-agent-run-hourly",
+            points: 100,
+            durationInSec: 3600,
+          };
+        case "in-app-agent-run-daily":
+          return {
+            resource: "in-app-agent-run-daily",
+            points: 500,
+            durationInSec: 86400,
+          };
         default:
           const exhaustiveCheck: never = resource;
           throw new Error(`Unhandled resource case: ${exhaustiveCheck}`);
@@ -367,6 +379,18 @@ const getPlanBasedRateLimitConfig = (
             points: 200,
             durationInSec: 86400, // 200 requests per day
           };
+        case "in-app-agent-run-hourly":
+          return {
+            resource: "in-app-agent-run-hourly",
+            points: 200,
+            durationInSec: 3600,
+          };
+        case "in-app-agent-run-daily":
+          return {
+            resource: "in-app-agent-run-daily",
+            points: 1000,
+            durationInSec: 86400,
+          };
         default:
           const exhaustiveCheck: never = resource;
           throw new Error(`Unhandled resource case: ${exhaustiveCheck}`);
@@ -428,6 +452,18 @@ const getPlanBasedRateLimitConfig = (
             resource: "score-delete",
             points: 1000,
             durationInSec: 86400, // 1000 requests per day
+          };
+        case "in-app-agent-run-hourly":
+          return {
+            resource: "in-app-agent-run-hourly",
+            points: 200,
+            durationInSec: 3600,
+          };
+        case "in-app-agent-run-daily":
+          return {
+            resource: "in-app-agent-run-daily",
+            points: 1000,
+            durationInSec: 86400,
           };
         default:
           const exhaustiveCheck: never = resource;

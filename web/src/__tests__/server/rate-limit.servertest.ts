@@ -344,4 +344,82 @@ describe("RateLimitService", () => {
     });
     expect(result?.isRateLimited()).toBe(false);
   });
+
+  it("should enforce in-app agent hourly and daily run limits independently", async () => {
+    const scope = {
+      orgId: orgId,
+      plan: "cloud:hobby" as const,
+      projectId,
+      accessLevel: "project" as const,
+      rateLimitOverrides: [
+        {
+          resource: "in-app-agent-run-hourly" as const,
+          points: 2,
+          durationInSec: 60,
+        },
+        {
+          resource: "in-app-agent-run-daily" as const,
+          points: 3,
+          durationInSec: 60,
+        },
+      ],
+    };
+
+    const rateLimitService = RateLimitService.getInstance(redis);
+
+    const firstHourly = await rateLimitService.rateLimitRequest(
+      scope,
+      "in-app-agent-run-hourly",
+    );
+    const firstDaily = await rateLimitService.rateLimitRequest(
+      scope,
+      "in-app-agent-run-daily",
+    );
+    const secondHourly = await rateLimitService.rateLimitRequest(
+      scope,
+      "in-app-agent-run-hourly",
+    );
+    const secondDaily = await rateLimitService.rateLimitRequest(
+      scope,
+      "in-app-agent-run-daily",
+    );
+
+    expect(firstHourly?.isRateLimited()).toBe(false);
+    expect(firstDaily?.isRateLimited()).toBe(false);
+    expect(secondHourly?.isRateLimited()).toBe(true);
+    expect(secondHourly?.res).toMatchObject({
+      resource: "in-app-agent-run-hourly",
+      points: 2,
+      remainingPoints: 0,
+      consumedPoints: 2,
+    });
+    expect(secondDaily?.isRateLimited()).toBe(false);
+    expect(secondDaily?.res).toMatchObject({
+      resource: "in-app-agent-run-daily",
+      points: 3,
+      remainingPoints: 1,
+      consumedPoints: 2,
+    });
+  });
+
+  it("should not apply in-app agent rate limits for OSS plan", async () => {
+    const scope = {
+      orgId: orgId,
+      plan: "oss" as const,
+      projectId,
+      accessLevel: "project" as const,
+      rateLimitOverrides: [],
+    };
+    const rateLimitService = RateLimitService.getInstance(redis);
+
+    for (const resource of [
+      "in-app-agent-run-hourly",
+      "in-app-agent-run-daily",
+    ] as const) {
+      const result = await rateLimitService.rateLimitRequest(scope, resource);
+
+      expect(result?.res).toBeUndefined();
+      expect(result?.isRateLimited()).toBe(false);
+    }
+  });
 });

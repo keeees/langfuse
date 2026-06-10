@@ -353,6 +353,7 @@ export function InAppAgentWindow(props: InAppAgentWindowProps) {
             }}
           >
             <textarea
+              autoFocus
               ref={inputRef}
               value={input}
               onChange={(event) => setInput(event.target.value)}

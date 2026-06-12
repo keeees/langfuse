@@ -134,8 +134,8 @@ export function AuthenticatedLayout({
       avatar: user.image ?? "",
     },
     items: [
-      { name: "Account Settings", href: "/account/settings" },
-      { name: "Theme", onClick: () => {}, content: <ThemeToggle /> },
+      { name: "账号设置", href: "/account/settings" },
+      { name: "主题", onClick: () => {}, content: <ThemeToggle /> },
       ...(isLangfuseCloud
         ? [
             {
@@ -152,7 +152,7 @@ export function AuthenticatedLayout({
             },
           ]
         : []),
-      { name: "Sign out", onClick: onSignOut },
+      { name: "退出登录", onClick: onSignOut },
     ],
   };
 

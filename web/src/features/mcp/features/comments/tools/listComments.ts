@@ -20,7 +20,7 @@ const ListCommentsBaseSchema = z
 export const [listCommentsTool, handleListComments] = defineTool({
   name: "listComments",
   description:
-    "List comments in the current Langfuse project, optionally filtered by object or author.",
+    "List comments in the current EvalBear project, optionally filtered by object or author.",
   baseSchema: ListCommentsBaseSchema,
   inputSchema: GetCommentsV1Query,
   handler: async (input, context) =>

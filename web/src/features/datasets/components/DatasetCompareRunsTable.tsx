@@ -249,7 +249,7 @@ function DatasetCompareRunsTableInternal(props: {
                 checked={isFieldSelected("scores")}
                 onCheckedChange={() => toggleField("scores")}
               >
-                Scores
+                评分
               </DropdownMenuCheckboxItem>
               <DropdownMenuCheckboxItem
                 checked={isFieldSelected("resourceMetrics")}

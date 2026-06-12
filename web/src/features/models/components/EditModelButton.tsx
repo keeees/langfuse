@@ -23,7 +23,7 @@ export const EditModelButton = ({
         title="Edit model"
         className="flex items-center"
       >
-        <span>Edit</span>
+        <span>编辑</span>
       </Button>
     </UpsertModelFormDialog>
   );

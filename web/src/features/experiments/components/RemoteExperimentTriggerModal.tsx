@@ -173,7 +173,7 @@ export const RemoteExperimentTriggerModal = ({
                 onClick={() => setShowTriggerModal(false)}
                 disabled={runRemoteExperimentMutation.isPending}
               >
-                Cancel
+                取消
               </Button>
               <Button
                 type="submit"

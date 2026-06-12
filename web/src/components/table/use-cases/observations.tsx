@@ -949,7 +949,7 @@ export default function ObservationsTable({
       id: "promptName",
       header: "Prompt",
       headerTooltip: {
-        description: "Link to prompt version in Langfuse prompt management.",
+        description: "Link to prompt version in EvalBear prompt management.",
         href: "https://langfuse.com/docs/prompt-management/get-started",
       },
       size: 200,

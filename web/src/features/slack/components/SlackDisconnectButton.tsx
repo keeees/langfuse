@@ -189,7 +189,7 @@ export const SlackDisconnectButton: React.FC<SlackDisconnectButtonProps> = ({
               onClick={() => setIsDialogOpen(false)}
               disabled={isDisconnecting}
             >
-              Cancel
+              取消
             </Button>
             <Button
               variant="destructive"

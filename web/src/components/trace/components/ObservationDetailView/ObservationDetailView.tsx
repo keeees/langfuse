@@ -316,7 +316,7 @@ export function ObservationDetailView({
             <TabsBarList>
               <TabsBarTrigger value="preview">Preview</TabsBarTrigger>
               {showScoresTab && (
-                <TabsBarTrigger value="scores">Scores</TabsBarTrigger>
+                <TabsBarTrigger value="scores">评分</TabsBarTrigger>
               )}
               {showLogViewTab && (
                 <TabsBarTrigger value="log">

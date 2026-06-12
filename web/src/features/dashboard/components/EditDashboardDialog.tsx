@@ -100,7 +100,7 @@ export function EditDashboardDialog({
               variant="outline"
               type="button"
             >
-              Cancel
+              取消
             </Button>
             <Button
               onClick={handleSave}

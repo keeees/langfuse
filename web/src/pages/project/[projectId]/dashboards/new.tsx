@@ -66,7 +66,7 @@ export default function NewDashboard() {
               variant="outline"
               onClick={() => router.push(`/project/${projectId}/dashboards`)}
             >
-              Cancel
+              取消
             </Button>
             <Button
               onClick={handleCreateDashboard}

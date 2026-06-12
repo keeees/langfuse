@@ -32,7 +32,7 @@ import {
 export const evalsFeature: McpFeatureModule = {
   name: "evals",
   description:
-    "Manage evaluators and evaluation rules in the current Langfuse project (unstable API)",
+    "Manage evaluators and evaluation rules in the current EvalBear project (unstable API)",
   tools: [
     {
       definition: listEvaluatorsTool,

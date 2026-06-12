@@ -357,7 +357,7 @@ export function DashboardWidget({
       <div
         className={`bg-background flex items-center justify-center rounded-lg border p-4`}
       >
-        <div className="text-muted-foreground">Loading...</div>
+        <div className="text-muted-foreground">加载中...</div>
       </div>
     );
   }

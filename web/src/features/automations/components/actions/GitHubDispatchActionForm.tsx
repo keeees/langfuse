@@ -51,7 +51,7 @@ export const GitHubDispatchActionForm: React.FC<
                 rel="noopener noreferrer"
                 className="text-primary inline-flex items-center hover:underline"
               >
-                Learn more <ExternalLink className="ml-1 h-3 w-3" />
+                了解更多 <ExternalLink className="ml-1 h-3 w-3" />
               </Link>
             </FormDescription>
             <FormMessage />
@@ -112,7 +112,7 @@ export const GitHubDispatchActionForm: React.FC<
                 ? " Leave empty to keep existing token."
                 : ""}{" "}
               <Link
-                href="https://github.com/settings/tokens/new?scopes=repo&description=Langfuse%20Automation"
+                href="https://github.com/settings/tokens/new?scopes=repo&description=EvalBear%20Automation"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary inline-flex items-center hover:underline"

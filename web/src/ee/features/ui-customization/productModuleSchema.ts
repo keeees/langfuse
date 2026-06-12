@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 /**
- * All available product modules in Langfuse
+ * All available product modules in EvalBear
  */
 export const PRODUCT_MODULES = [
   "dashboards",

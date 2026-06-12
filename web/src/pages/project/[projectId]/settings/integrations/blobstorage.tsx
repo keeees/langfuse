@@ -911,7 +911,7 @@ const BlobStorageIntegrationSettingsForm = ({
           onClick={blobStorageForm.handleSubmit(onSubmit)}
           disabled={isLoading}
         >
-          Save
+          保存
         </Button>
         <Button
           variant="secondary"
@@ -953,7 +953,7 @@ const BlobStorageIntegrationSettingsForm = ({
               mutDelete.mutate({ projectId });
           }}
         >
-          Reset
+          重置
         </Button>
       </div>
     </Form>

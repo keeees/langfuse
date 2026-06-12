@@ -60,7 +60,7 @@ export default function EvaluatorsPage() {
     return (
       <Page
         headerProps={{
-          title: "Evaluators",
+          title: "评估器",
           help: {
             description:
               "Configure a langfuse managed or custom evaluator to evaluate incoming traces.",
@@ -78,7 +78,7 @@ export default function EvaluatorsPage() {
     <>
       <Page
         headerProps={{
-          title: "Evaluators",
+          title: "评估器",
           help: {
             description:
               "Configure a langfuse managed or custom evaluator to evaluate incoming traces.",

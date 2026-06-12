@@ -82,7 +82,7 @@ export const ArchiveScoreConfigButton = ({
               capture("score_configs:archive_form_submit");
             }}
           >
-            Confirm
+            确认
           </Button>
         </div>
       </PopoverContent>

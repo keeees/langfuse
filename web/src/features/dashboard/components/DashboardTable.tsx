@@ -110,7 +110,7 @@ function EditDashboardButton({
         onClick={() => setIsDialogOpen(true)}
       >
         <Edit className="mr-2 h-4 w-4" />
-        Edit
+        编辑
       </Button>
 
       <EditDashboardDialog
@@ -198,10 +198,10 @@ export function DashboardTable() {
       cell: (row) => {
         return row.row.original.owner === "LANGFUSE" ? (
           <span className="flex gap-1 px-2 py-0.5 text-xs">
-            <span role="img" aria-label="Langfuse">
+            <span role="img" aria-label="EvalBear">
               🪢
             </span>
-            Langfuse
+            EvalBear
           </span>
         ) : (
           <span className="flex gap-1 px-2 py-0.5 text-xs">

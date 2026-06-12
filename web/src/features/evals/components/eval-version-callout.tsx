@@ -45,7 +45,7 @@ const getCalloutContent = (
             rel="noopener noreferrer"
             className="text-dark-blue font-medium hover:opacity-80"
           >
-            Learn more
+            了解更多
           </a>
           .
         </>
@@ -98,7 +98,7 @@ const getCalloutContent = (
             rel="noopener noreferrer"
             className="text-dark-blue font-medium hover:opacity-80"
           >
-            Learn more
+            了解更多
           </a>
           .
         </>
@@ -121,7 +121,7 @@ const getCalloutContent = (
             rel="noopener noreferrer"
             className="text-dark-blue font-medium hover:opacity-80"
           >
-            Learn more
+            了解更多
           </a>
           .
         </>

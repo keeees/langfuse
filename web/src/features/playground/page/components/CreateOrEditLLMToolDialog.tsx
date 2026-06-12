@@ -276,7 +276,7 @@ export const CreateOrEditLLMToolDialog: React.FC<CreateOrEditLLMToolDialog> = (
                       onClick={handleDelete}
                       className="mr-auto"
                     >
-                      Delete
+                      删除
                     </Button>
                   )}
                   <Button
@@ -284,9 +284,9 @@ export const CreateOrEditLLMToolDialog: React.FC<CreateOrEditLLMToolDialog> = (
                     variant="outline"
                     onClick={() => setOpen(false)}
                   >
-                    Cancel
+                    取消
                   </Button>
-                  <Button type="submit">Save</Button>
+                  <Button type="submit">保存</Button>
                 </div>
               </div>
             </DialogFooter>

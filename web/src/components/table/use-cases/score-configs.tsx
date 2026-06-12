@@ -194,7 +194,7 @@ export function ScoreConfigsTable({ projectId }: { projectId: string }) {
                 onClick={() => setEditConfigId(configId)}
               >
                 <Edit className="mr-2 h-4 w-4" />
-                Edit
+                编辑
               </DropdownMenuItem>
               <DropdownMenuItem asChild key="archive">
                 <ArchiveScoreConfigButton

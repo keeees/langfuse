@@ -353,9 +353,9 @@ if (
     }),
   );
 
-// Langfuse Cloud only: "Sign in with ClickHouse Cloud"
+// EvalBear Cloud only: "Sign in with ClickHouse Cloud"
 // Uses Auth0Provider with a custom provider ID so the callback URL becomes
-// /api/auth/callback/clickhouse-cloud. NOT intended for self-hosted Langfuse.
+// /api/auth/callback/clickhouse-cloud. NOT intended for self-hosted EvalBear.
 if (
   env.AUTH_CLICKHOUSE_CLOUD_CLIENT_ID &&
   env.AUTH_CLICKHOUSE_CLOUD_CLIENT_SECRET &&
@@ -835,7 +835,7 @@ export async function getAuthOptions(): Promise<NextAuthOptions> {
             environment: {
               enableExperimentalFeatures:
                 env.LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES === "true",
-              // Enables features that are only available under an enterprise license when self-hosting Langfuse
+              // Enables features that are only available under an enterprise license when self-hosting EvalBear
               // If you edit this line, you risk executing code that is not MIT licensed (self-contained in /ee folders otherwise)
               selfHostedInstancePlan: getSelfHostedInstancePlanServerSide(),
               v4WriteMode,

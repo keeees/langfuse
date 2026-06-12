@@ -168,7 +168,7 @@ export function AddObservationsToDatasetDialog(
               {showBackButton && (
                 <Button type="button" variant="ghost" onClick={goBack}>
                   <ChevronLeft className="mr-1 h-4 w-4" />
-                  Back
+                  返回
                 </Button>
               )}
             </div>

@@ -70,7 +70,7 @@ export const LogViewExpandedContent = memo(function LogViewExpandedContent({
       {isLoading && (
         <div className="flex items-center justify-center py-4">
           <Spinner size="sm" variant="muted" />
-          <span className="text-muted-foreground ml-2 text-xs">Loading...</span>
+          <span className="text-muted-foreground ml-2 text-xs">加载中...</span>
         </div>
       )}
 

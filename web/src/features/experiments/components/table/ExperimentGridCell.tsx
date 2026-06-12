@@ -560,7 +560,7 @@ export const ExperimentGridCell = ({
 export const ExperimentGridCellEmpty = () => {
   return (
     <div className="flex h-full w-full items-start justify-start p-2">
-      <span className="text-muted-foreground text-xs">No data</span>
+      <span className="text-muted-foreground text-xs">暂无数据</span>
     </div>
   );
 };

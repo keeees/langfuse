@@ -1,7 +1,7 @@
 /**
  * MCP Tool: createChatPrompt
  *
- * Creates a new chat prompt version in Langfuse.
+ * Creates a new chat prompt version in EvalBear.
  */
 
 import { z } from "zod";
@@ -81,7 +81,7 @@ const CreateChatPromptInputSchema = z.object({
 export const [createChatPromptTool, handleCreateChatPrompt] = defineTool({
   name: "createChatPrompt",
   description: [
-    "Create a new chat prompt version in Langfuse. Chat prompts are arrays of messages with roles and content.",
+    "Create a new chat prompt version in EvalBear. Chat prompts are arrays of messages with roles and content.",
     "",
     "Important:",
     "- Prompts are immutable - cannot modify existing versions",

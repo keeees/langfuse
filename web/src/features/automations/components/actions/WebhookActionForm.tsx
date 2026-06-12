@@ -57,7 +57,7 @@ export const webhookSchema = z.object({
         },
         {
           message:
-            "This header is automatically added by Langfuse and cannot be customized",
+            "This header is automatically added by EvalBear and cannot be customized",
         },
       ),
       value: z.string(),
@@ -181,7 +181,7 @@ export const WebhookActionForm: React.FC<WebhookActionFormProps> = ({
         {/* Default Headers Section */}
         <div className="mb-4">
           <FormDescription className="mb-2">
-            Default headers (automatically added by Langfuse):
+            Default headers (automatically added by EvalBear):
           </FormDescription>
           {Object.entries({
             ...WebhookDefaultHeaders,
@@ -420,7 +420,7 @@ export const RegenerateWebhookSecretButton = ({
               onClick={() => setShowConfirmPopover(false)}
               disabled={regenerateSecretMutation.isPending}
             >
-              Cancel
+              取消
             </Button>
             <Button
               type="button"

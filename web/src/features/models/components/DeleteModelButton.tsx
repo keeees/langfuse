@@ -44,7 +44,7 @@ export const DeleteModelButton = ({
           disabled={!hasAccess}
           className="border-light-red flex items-center"
         >
-          <span className="text-dark-red">Delete</span>
+          <span className="text-dark-red">删除</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent>

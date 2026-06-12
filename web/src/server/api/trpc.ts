@@ -386,7 +386,7 @@ export const requireFeatureFlag = (flag: Flag) =>
     return next();
   });
 
-/** requireLangfuseCloud rejects calls from non-Langfuse-Cloud deployments. */
+/** requireLangfuseCloud rejects calls from non-EvalBear-Cloud deployments. */
 export const requireLangfuseCloud = t.middleware(({ next }) => {
   if (!isLangfuseCloud) {
     throw new TRPCError({ code: "NOT_FOUND", message: "Not found" });

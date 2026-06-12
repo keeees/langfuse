@@ -21,7 +21,7 @@ export const DatasetItemViewModeContent = ({
   dataset,
 }: DatasetItemViewModeContentProps) => {
   if (isLoading) {
-    return <div className="text-muted-foreground text-sm">Loading...</div>;
+    return <div className="text-muted-foreground text-sm">加载中...</div>;
   }
 
   if (item === null) {

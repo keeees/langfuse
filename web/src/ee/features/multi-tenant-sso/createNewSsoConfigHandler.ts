@@ -30,7 +30,7 @@ export async function createNewSsoConfigHandler(
       return;
     }
     // Authenticate via ADMIN_API_KEY with timing-safe comparison.
-    // multiTenantSsoAvailable already restricts this endpoint to Langfuse
+    // multiTenantSsoAvailable already restricts this endpoint to EvalBear
     // Cloud, so explicitly opt in with isAllowedOnLangfuseCloud.
     if (
       !AdminApiAuthService.handleAdminAuth(req, res, {

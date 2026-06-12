@@ -121,7 +121,7 @@ export const StripeSwitchPlanButton = ({
         </DialogBody>
         <DialogFooter>
           <DialogClose asChild>
-            <Button variant="secondary">Cancel</Button>
+            <Button variant="secondary">取消</Button>
           </DialogClose>
           <ActionButton
             onClick={() => {
@@ -137,7 +137,7 @@ export const StripeSwitchPlanButton = ({
             loading={processing}
             className={className}
           >
-            Confirm
+            确认
           </ActionButton>
         </DialogFooter>
       </DialogContent>

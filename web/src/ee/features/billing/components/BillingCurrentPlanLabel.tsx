@@ -1,4 +1,4 @@
-// Langfuse Cloud only
+// EvalBear Cloud only
 
 import { LocalIsoDate } from "@/src/components/LocalIsoDate";
 

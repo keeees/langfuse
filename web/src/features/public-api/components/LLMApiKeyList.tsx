@@ -217,7 +217,7 @@ function DeleteApiKeyButton(props: { projectId: string; apiKeyId: string }) {
             Permanently delete
           </Button>
           <Button variant="ghost" onClick={() => setOpen(false)}>
-            Cancel
+            取消
           </Button>
         </DialogFooter>
       </DialogContent>

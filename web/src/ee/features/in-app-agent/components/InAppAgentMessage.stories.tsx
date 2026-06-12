@@ -10,7 +10,7 @@ export const AssistantText = meta.story({
     role: "assistant",
     content: {
       type: "text",
-      text: "Langfuse tracks traces, observations, scores, and metadata so teams can debug LLM applications.",
+      text: "EvalBear tracks traces, observations, scores, and metadata so teams can debug LLM applications.",
     },
   },
 });
@@ -28,7 +28,7 @@ export const AssistantMarkdown = meta.story({
         "##### Heading 5",
         "###### Heading 6",
         "",
-        "You can use **Langfuse** to inspect _production traces_ and compare `input`, `output`, and metadata across releases.",
+        "You can use **EvalBear** to inspect _production traces_ and compare `input`, `output`, and metadata across releases.",
         "",
         "- Inspect traces with nested observations",
         "- Evaluate outputs with scores",

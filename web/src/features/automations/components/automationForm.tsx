@@ -302,7 +302,7 @@ const PromptTriggerFields = ({
       name="filter"
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Filter</FormLabel>
+          <FormLabel>筛选</FormLabel>
           <FormControl>
             <InlineFilterBuilder
               columns={webhookActionFilterOptions()}
@@ -769,7 +769,7 @@ export const AutomationForm = ({
             <div className="grow"></div>
             <div className="flex gap-3">
               <Button type="button" variant="outline" onClick={handleCancel}>
-                Cancel
+                取消
               </Button>
               <Button
                 type="submit"

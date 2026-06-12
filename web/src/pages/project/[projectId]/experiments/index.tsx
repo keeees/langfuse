@@ -47,7 +47,7 @@ export default function Experiments() {
 
   if (!canAccessExperiments) {
     return (
-      <Page headerProps={{ title: "Experiments" }}>
+      <Page headerProps={{ title: "实验" }}>
         <div className="flex h-full items-center justify-center">
           <Spinner size="xl" variant="muted" />
         </div>
@@ -58,7 +58,7 @@ export default function Experiments() {
   return (
     <Page
       headerProps={{
-        title: "Experiments",
+        title: "实验",
         actionButtonsRight: (
           <div className="flex items-center gap-2">
             <Dialog

@@ -70,7 +70,7 @@ export function DeleteSpendAlertDialog({
             disabled={isDeleting}
             onClick={() => onOpenChange(false)}
           >
-            Cancel
+            取消
           </Button>
           <Button
             variant="destructive"

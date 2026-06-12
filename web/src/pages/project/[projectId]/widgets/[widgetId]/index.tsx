@@ -123,7 +123,7 @@ export default function EditWidget() {
         />
       ) : (
         <div className="flex h-[300px] items-center justify-center">
-          <p className="text-muted-foreground">Loading...</p>
+          <p className="text-muted-foreground">加载中...</p>
         </div>
       )}
     </Page>

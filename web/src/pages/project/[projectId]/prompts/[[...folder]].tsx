@@ -82,10 +82,10 @@ export default function PromptsWithFolder() {
   return (
     <Page
       headerProps={{
-        title: "Prompts",
+        title: "提示词",
         help: {
           description:
-            "Manage and version your prompts in Langfuse. Edit and update them via the UI and SDK. Retrieve the production version via the SDKs. Learn more in the docs.",
+            "Manage and version your prompts in EvalBear. Edit and update them via the UI and SDK. Retrieve the production version via the SDKs. Learn more in the docs.",
           href: "https://langfuse.com/docs/prompt-management/get-started",
         },
         actionButtonsRight: (
@@ -102,7 +102,7 @@ export default function PromptsWithFolder() {
                 capture("prompts:new_form_open");
               }}
             >
-              New prompt
+              新建提示词
             </ActionButton>
           </>
         ),

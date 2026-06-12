@@ -174,7 +174,7 @@ export const InAppAiAgentButton = () => {
                 variant="outline"
                 onClick={() => setEnableDialogOpen(false)}
               >
-                Close
+                关闭
               </Button>
             </div>
           </DialogFooter>

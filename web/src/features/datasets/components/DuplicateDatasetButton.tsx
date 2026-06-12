@@ -38,7 +38,7 @@ export const DuplicateDatasetButton: React.FC<{
       disabled={!hasAccess}
     >
       <Copy className="mr-2 h-4 w-4" />
-      Duplicate
+      复制
     </Button>
   );
 };

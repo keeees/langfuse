@@ -36,7 +36,7 @@ export default function AnnotationQueues() {
   return (
     <Page
       headerProps={{
-        title: "Annotation Queues",
+        title: "人工标注",
         help: {
           description:
             "Annotation queues are used to manage scoring workflows for your LLM projects. See docs to learn more.",

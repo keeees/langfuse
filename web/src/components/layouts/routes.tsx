@@ -20,6 +20,7 @@ import {
   ClipboardPen,
   Clock,
   Beaker,
+  ClipboardCheck,
 } from "lucide-react";
 import { type ReactNode } from "react";
 import { type Entitlement } from "@/src/features/entitlements/constants/entitlements";
@@ -42,9 +43,9 @@ export enum RouteSection {
 }
 
 export enum RouteGroup {
-  Observability = "Observability",
-  PromptManagement = "Prompt Management",
-  Evaluation = "Evaluation",
+  Observability = "可观测性",
+  PromptManagement = "提示词管理",
+  Evaluation = "评估",
 }
 
 export type Route = {
@@ -71,40 +72,40 @@ export type Route = {
 
 export const ROUTES: Route[] = [
   {
-    title: "Go to...",
+    title: "跳转到...",
     pathname: "", // Empty pathname since this is a dropdown
     icon: Search,
     menuNode: <CommandMenuTrigger />,
     section: RouteSection.Main,
   },
   {
-    title: "Organizations",
+    title: "组织",
     pathname: "/",
     icon: Grid2X2,
     show: ({ organization }) => organization === undefined,
     section: RouteSection.Main,
   },
   {
-    title: "Projects",
+    title: "项目",
     pathname: "/organization/[organizationId]",
     icon: Grid2X2,
     section: RouteSection.Main,
   },
   {
-    title: "Home",
+    title: "首页",
     pathname: `/project/[projectId]`,
     icon: Home,
     section: RouteSection.Main,
   },
   {
-    title: "Dashboards",
+    title: "看板",
     pathname: `/project/[projectId]/dashboards`,
     icon: LayoutDashboard,
     productModule: "dashboards",
     section: RouteSection.Main,
   },
   {
-    title: "Tracing",
+    title: "追踪",
     icon: ListTree,
     productModule: "tracing",
     group: RouteGroup.Observability,
@@ -112,7 +113,7 @@ export const ROUTES: Route[] = [
     pathname: `/project/[projectId]/traces`,
   },
   {
-    title: "Sessions",
+    title: "会话",
     icon: Clock,
     productModule: "tracing",
     group: RouteGroup.Observability,
@@ -120,7 +121,7 @@ export const ROUTES: Route[] = [
     pathname: `/project/[projectId]/sessions`,
   },
   {
-    title: "Users",
+    title: "用户",
     pathname: `/project/[projectId]/users`,
     icon: UsersIcon,
     productModule: "tracing",
@@ -128,7 +129,7 @@ export const ROUTES: Route[] = [
     section: RouteSection.Main,
   },
   {
-    title: "Monitors",
+    title: "监控",
     pathname: "/project/[projectId]/monitors",
     icon: BellRing,
     projectRbacScopes: ["monitors:read"],
@@ -139,7 +140,7 @@ export const ROUTES: Route[] = [
     label: "Beta",
   },
   {
-    title: "Prompts",
+    title: "提示词",
     pathname: "/project/[projectId]/prompts",
     icon: FileJson,
     projectRbacScopes: ["prompts:read"],
@@ -156,14 +157,21 @@ export const ROUTES: Route[] = [
     section: RouteSection.Main,
   },
   {
-    title: "Scores",
+    title: "评分",
     pathname: `/project/[projectId]/scores`,
     group: RouteGroup.Evaluation,
     section: RouteSection.Main,
     icon: SquarePercent,
   },
   {
-    title: "Evaluators",
+    title: "EvalBear Eval",
+    pathname: `/project/[projectId]/evalbear-eval`,
+    group: RouteGroup.Evaluation,
+    section: RouteSection.Main,
+    icon: ClipboardCheck,
+  },
+  {
+    title: "评估器",
     icon: Lightbulb,
     productModule: "evaluation",
     projectRbacScopes: ["evalJob:read"],
@@ -172,7 +180,7 @@ export const ROUTES: Route[] = [
     pathname: `/project/[projectId]/evals`,
   },
   {
-    title: "Human Annotation",
+    title: "人工标注",
     pathname: `/project/[projectId]/annotation-queues`,
     projectRbacScopes: ["annotationQueues:read"],
     group: RouteGroup.Evaluation,
@@ -180,7 +188,7 @@ export const ROUTES: Route[] = [
     icon: ClipboardPen,
   },
   {
-    title: "Datasets",
+    title: "数据集",
     pathname: `/project/[projectId]/datasets`,
     icon: Database,
     productModule: "datasets",
@@ -188,7 +196,7 @@ export const ROUTES: Route[] = [
     section: RouteSection.Main,
   },
   {
-    title: "Experiments",
+    title: "实验",
     pathname: `/project/[projectId]/experiments`,
     icon: Beaker,
     featureFlag: "experimentsV4Enabled",
@@ -196,7 +204,7 @@ export const ROUTES: Route[] = [
     section: RouteSection.Main,
   },
   {
-    title: "Upgrade",
+    title: "升级",
     icon: Sparkle,
     pathname: "/project/[projectId]/settings/billing",
     section: RouteSection.Secondary,
@@ -205,7 +213,7 @@ export const ROUTES: Route[] = [
     show: ({ organization }) => organization?.plan === "cloud:hobby",
   },
   {
-    title: "Upgrade",
+    title: "升级",
     icon: Sparkle,
     pathname: "/organization/[organizationId]/settings/billing",
     section: RouteSection.Secondary,
@@ -214,38 +222,38 @@ export const ROUTES: Route[] = [
     show: ({ organization }) => organization?.plan === "cloud:hobby",
   },
   {
-    title: "Cloud Status",
+    title: "云端状态",
     section: RouteSection.Secondary,
     pathname: "",
     menuNode: <CloudStatusMenu />,
   },
   {
-    title: "Preview (fast)",
+    title: "预览（快通道）",
     pathname: "",
     section: RouteSection.Secondary,
     featureFlag: "v4BetaToggleVisible",
     menuNode: <V4SidebarToggle />,
   },
   {
-    title: "Settings",
+    title: "设置",
     pathname: "/project/[projectId]/settings",
     icon: Settings,
     section: RouteSection.Secondary,
   },
   {
-    title: "Settings",
+    title: "设置",
     pathname: "/organization/[organizationId]/settings",
     icon: Settings,
     section: RouteSection.Secondary,
   },
   {
-    title: "Book a call",
+    title: "预约通话",
     section: RouteSection.Secondary,
     pathname: "",
     menuNode: <BookACallButton />,
   },
   {
-    title: "AI Assistant",
+    title: "AI 助手",
     section: RouteSection.Secondary,
     pathname: "",
     featureFlag: "inAppAgent",
@@ -254,7 +262,7 @@ export const ROUTES: Route[] = [
     menuNode: <InAppAiAgentButton />,
   },
   {
-    title: "Support",
+    title: "帮助",
     icon: LifeBuoy,
     section: RouteSection.Secondary,
     pathname: "", // Empty pathname since this is a dropdown
@@ -277,7 +285,7 @@ function CommandMenuTrigger() {
       className="whitespace-nowrap"
     >
       <Search className="h-4 w-4" />
-      Go to...
+      跳转到...
       <KeyboardShortcut
         className="ml-auto"
         keys={[navigator.userAgent.includes("Mac") ? "⌘" : "Ctrl", "K"]}

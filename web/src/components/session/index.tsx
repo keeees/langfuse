@@ -174,7 +174,7 @@ export function SessionUsers({
                     remainingUsers.length
                   }
                 >
-                  Next
+                  下一步
                 </Button>
               </div>
             )}

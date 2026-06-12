@@ -135,7 +135,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
           env.AUTH_AUTH0_CLIENT_ID !== undefined &&
           env.AUTH_AUTH0_CLIENT_SECRET !== undefined &&
           env.AUTH_AUTH0_ISSUER !== undefined,
-        // Langfuse Cloud only — NOT for self-hosted Langfuse
+        // EvalBear Cloud only — NOT for self-hosted EvalBear
         clickhouseCloud:
           env.AUTH_CLICKHOUSE_CLOUD_CLIENT_ID !== undefined &&
           env.AUTH_CLICKHOUSE_CLOUD_CLIENT_SECRET !== undefined &&
@@ -722,7 +722,7 @@ export default function SignIn({
   return (
     <>
       <Head>
-        <title>Sign in | Langfuse</title>
+        <title>Sign in | EvalBear</title>
       </Head>
       <div className="flex flex-1 flex-col py-6 sm:min-h-full sm:justify-center sm:px-6 sm:py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">

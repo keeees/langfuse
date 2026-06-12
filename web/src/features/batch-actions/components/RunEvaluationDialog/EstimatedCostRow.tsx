@@ -48,7 +48,7 @@ export function EstimatedCostRow(props: EstimatedCostRowProps) {
         <span className="text-muted-foreground shrink-0">
           Est. LLM API Key Cost:
         </span>
-        <span className="text-muted-foreground">No data</span>
+        <span className="text-muted-foreground">暂无数据</span>
       </div>
     );
   }
@@ -77,7 +77,7 @@ export function EstimatedCostRow(props: EstimatedCostRowProps) {
             </TooltipTrigger>
             <TooltipContent className="max-w-xs space-y-2 p-3">
               <p className="text-xs">
-                Expected cost on your linked API key (not Langfuse). Estimated
+                Expected cost on your linked API key (not EvalBear). Estimated
                 from average evaluator execution cost over the last 7 days.
               </p>
               <div className="space-y-1">

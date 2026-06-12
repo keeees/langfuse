@@ -432,7 +432,7 @@ export function TableViewPresetsDrawer({
               <CommandList className="max-h-[calc(100vh-150px)]">
                 <CommandEmpty>No views found</CommandEmpty>
                 <CommandGroup className="pb-0">
-                  {/* System Preset: Langfuse Default - hidden when page-specific presets exist */}
+                  {/* System Preset: EvalBear Default - hidden when page-specific presets exist */}
                   {!systemFilterPresets?.length && (
                     <CommandItem
                       key={SYSTEM_PRESETS.DEFAULT.id}
@@ -640,7 +640,7 @@ export function TableViewPresetsDrawer({
                                         onClick={(e) => e.stopPropagation()}
                                       >
                                         <h2 className="text-md mb-3 font-semibold">
-                                          Edit
+                                          编辑
                                         </h2>
                                         <Form {...form}>
                                           <form
@@ -678,7 +678,7 @@ export function TableViewPresetsDrawer({
                                                   !!form.formState.errors.name
                                                 }
                                               >
-                                                Save
+                                                保存
                                               </Button>
                                             </div>
                                           </form>
@@ -867,7 +867,7 @@ export function TableViewPresetsDrawer({
                   variant="outline"
                   onClick={() => setIsCreateDialogOpen(false)}
                 >
-                  Cancel
+                  取消
                 </Button>
                 <Button
                   type="submit"

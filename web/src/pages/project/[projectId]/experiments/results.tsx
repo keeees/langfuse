@@ -74,7 +74,7 @@ export default function ExperimentResults() {
   // Show spinner while session loads or while redirecting when beta is off
   if (!isExperimentsBetaActive) {
     return (
-      <Page headerProps={{ title: "Experiments" }}>
+      <Page headerProps={{ title: "实验" }}>
         <div className="flex h-full items-center justify-center">
           <Spinner size="xl" variant="muted" />
         </div>

@@ -111,7 +111,7 @@ export function TracePage({
       />
     );
 
-  if (!trace.data) return <div className="p-3">Loading...</div>;
+  if (!trace.data) return <div className="p-3">加载中...</div>;
 
   const isSharedTrace = trace.data.public;
   const showPublicIndicators = isSharedTrace && !hasProjectAccess;
@@ -124,17 +124,17 @@ export function TracePage({
         asChild
         size="sm"
         variant="outline"
-        title="Back to Langfuse"
+        title="Back to EvalBear"
         className="px-3"
       >
-        <Link href="/">Langfuse</Link>
+        <Link href="/">EvalBear</Link>
       </Button>
     ) : (
       <Button
         asChild
         size="sm"
         variant="default"
-        title="Sign in to Langfuse"
+        title="Sign in to EvalBear"
         className="px-3"
       >
         <Link href={`/auth/sign-in?targetPath=${encodedTargetPath}`}>

@@ -122,7 +122,7 @@ export const StripeCancellationButton = ({
           </DialogBody>
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant="secondary">Cancel</Button>
+              <Button variant="secondary">取消</Button>
             </DialogClose>
             <Button variant="default" onClick={onReactivate} disabled={loading}>
               {loading ? "Reactivating…" : "Confirm Reactivation"}

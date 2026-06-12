@@ -403,7 +403,7 @@ function VerifiedSignupFlow({
     return (
       <>
         <Head>
-          <title>Verify your email | Langfuse</title>
+          <title>Verify your email | EvalBear</title>
         </Head>
         <div className="flex flex-1 flex-col py-6 sm:min-h-full sm:justify-center sm:px-6 sm:py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -517,7 +517,7 @@ function VerifiedSignupFlow({
             loading={form.formState.isSubmitting}
             data-testid="submit-email-password-sign-up-form"
           >
-            Continue
+            继续
           </Button>
           {formError ? (
             <div className="text-destructive text-center text-sm font-medium">
@@ -543,7 +543,7 @@ function SignupPageShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Head>
-        <title>Sign up | Langfuse</title>
+        <title>Sign up | EvalBear</title>
         <meta
           name="description"
           content="Create an account, no credit card required."

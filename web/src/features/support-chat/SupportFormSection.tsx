@@ -647,7 +647,7 @@ export function SupportFormSection({
               }}
               className="w-full"
             >
-              Cancel
+              取消
             </Button>
 
             <Button

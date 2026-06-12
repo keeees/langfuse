@@ -63,7 +63,7 @@ export function EvaluatorsOnboarding({ projectId }: EvaluatorsOnboardingProps) {
     return (
       <SplashScreen
         title="Get started with evaluations"
-        description="Use evaluators to score traces and observations automatically. Langfuse supports two evaluator types:"
+        description="Use evaluators to score traces and observations automatically. EvalBear supports two evaluator types:"
         valuePropositions={evaluatorTypes}
         primaryAction={{
           label: "Create Evaluator",
@@ -90,7 +90,6 @@ export function EvaluatorsOnboarding({ projectId }: EvaluatorsOnboardingProps) {
         label: "Learn More",
         href: "https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge",
       }}
-      videoSrc="https://static.langfuse.com/prod-assets/onboarding/scores-llm-as-a-judge-overview-v1.mp4"
     />
   );
 }

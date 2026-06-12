@@ -33,7 +33,7 @@ export const LLMApiKeyComponent = (p: {
     return (
       <div>
         <Label className="text-xs font-semibold">API key</Label>
-        <p className="text-muted-foreground text-sm">Loading...</p>
+        <p className="text-muted-foreground text-sm">加载中...</p>
       </div>
     );
   }

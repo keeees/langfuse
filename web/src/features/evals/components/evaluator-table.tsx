@@ -394,7 +394,7 @@ export default function EvaluatorTable({ projectId }: { projectId: string }) {
                 }}
               >
                 <Edit className="mr-2 h-4 w-4" />
-                Edit
+                编辑
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <DeleteEvalConfigButton

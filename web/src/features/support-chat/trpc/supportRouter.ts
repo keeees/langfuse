@@ -198,7 +198,7 @@ export const supportRouter = createTRPCRouter({
             bodyHtml: pylonBodyHtml,
             requesterEmail: email,
             requesterName: fullName,
-            tags: ["Langfuse"],
+            tags: ["EvalBear"],
             priority: honorHighPriority
               ? "urgent"
               : mapSeverityToPylonPriority(input.severity),

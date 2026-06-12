@@ -70,7 +70,7 @@ export const BillingDiscountCodeButton = ({
         <DialogFooter>
           <DialogClose asChild>
             <Button variant="secondary" disabled={processing}>
-              Cancel
+              取消
             </Button>
           </DialogClose>
           <Button

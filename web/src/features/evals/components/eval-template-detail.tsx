@@ -123,7 +123,7 @@ export const EvalTemplateDetail = () => {
       }}
     >
       {allTemplates.isLoading || !allTemplates.data || !template.data ? (
-        <div className="p-3">Loading...</div>
+        <div className="p-3">加载中...</div>
       ) : isEditing ? (
         <div className="overflow-y-auto p-3 pt-1">
           <EvalTemplateForm

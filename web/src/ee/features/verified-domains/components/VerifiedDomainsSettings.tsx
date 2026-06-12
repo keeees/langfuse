@@ -373,10 +373,10 @@ function AddDomainButton({ orgId }: { orgId: string }) {
                 variant="ghost"
                 onClick={() => setOpen(false)}
               >
-                Cancel
+                取消
               </Button>
               <Button type="submit" loading={createMutation.isPending}>
-                Add
+                添加
               </Button>
             </DialogFooter>
           </form>
@@ -429,7 +429,7 @@ function DeleteDomainButton({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>取消</AlertDialogCancel>
           <AlertDialogAction
             onClick={() => deleteMutation.mutate({ orgId, id })}
             disabled={deleteMutation.isPending}

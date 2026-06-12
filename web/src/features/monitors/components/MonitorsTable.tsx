@@ -331,7 +331,7 @@ function MonitorRowActions({
         onClick={(e) => e.stopPropagation()}
       >
         <SquarePen className="h-4 w-4" aria-hidden="true" />
-        {collapsed ? <span className="ml-2">Edit</span> : null}
+        {collapsed ? <span className="ml-2">编辑</span> : null}
       </Link>
     </Button>
   );

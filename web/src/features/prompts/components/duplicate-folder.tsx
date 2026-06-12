@@ -246,7 +246,7 @@ export function DuplicateFolder({ folderPath }: { folderPath: string }) {
                 }
                 className="mt-auto w-full"
               >
-                Duplicate
+                复制
               </Button>
             </DialogFooter>
           </form>

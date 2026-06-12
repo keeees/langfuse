@@ -168,7 +168,7 @@ export const EditDatasetItemDialog = ({
                 onClick={() => onOpenChange(false)}
                 disabled={updateDatasetItemMutation.isPending}
               >
-                Cancel
+                取消
               </Button>
               <Button
                 type="submit"
@@ -179,7 +179,7 @@ export const EditDatasetItemDialog = ({
                   (validation.hasSchemas && !validation.isValid)
                 }
               >
-                Save changes
+                保存修改
               </Button>
             </DialogFooter>
           </form>

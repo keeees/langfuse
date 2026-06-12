@@ -60,7 +60,7 @@ const SubmitButton = () => {
         }}
         loading={isStreaming}
       >
-        <p>Submit</p>
+        <p>提交</p>
       </Button>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

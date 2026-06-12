@@ -186,7 +186,7 @@ export function SpendAlertDialog({
                 onClick={() => onOpenChange(false)}
                 disabled={isSubmitting}
               >
-                Cancel
+                取消
               </Button>
               <Button type="submit" disabled={isSubmitting}>
                 {isSubmitting

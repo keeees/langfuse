@@ -120,7 +120,7 @@ export function V4PromoBanner() {
             target="_blank"
             className="flex flex-row items-center gap-1 whitespace-nowrap underline underline-offset-2"
           >
-            Learn more
+            了解更多
             <ExternalLink className="h-3 w-3 shrink-0" />
           </Link>
         </p>

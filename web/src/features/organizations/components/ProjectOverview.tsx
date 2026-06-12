@@ -83,11 +83,11 @@ const DemoOrganizationTile = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Try Langfuse Demo</CardTitle>
+        <CardTitle>Try EvalBear Demo</CardTitle>
       </CardHeader>
       <CardContent>
-        We have built a Q&A chatbot that answers questions based on the Langfuse
-        Docs. Interact with it to see traces in Langfuse.
+        We have built a Q&A chatbot that answers questions based on the EvalBear
+        Docs. Interact with it to see traces in EvalBear.
       </CardContent>
       <CardFooter>
         <Button asChild variant="secondary">
@@ -141,13 +141,13 @@ const OrganizationActionButtons = ({
         <Button asChild variant={primaryButtonVariant}>
           <Link href={createProjectRoute(orgId)}>
             <PlusIcon className="mr-2 h-4 w-4" aria-hidden="true" />
-            New project
+            新建项目
           </Link>
         </Button>
       ) : (
         <Button disabled variant={primaryButtonVariant}>
           <LockIcon className="mr-2 h-4 w-4" aria-hidden="true" />
-          New project
+          新建项目
         </Button>
       )}
     </>
@@ -353,7 +353,7 @@ const Onboarding = () => {
         <CardDescription>
           {canCreateOrgs
             ? "Create an organization to get started. Alternatively, ask your organization admin to invite you."
-            : "You need to get invited to an organization to get started with Langfuse."}
+            : "You need to get invited to an organization to get started with EvalBear."}
         </CardDescription>
       </CardContent>
       <CardFooter className="flex gap-4">

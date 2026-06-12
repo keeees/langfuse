@@ -879,7 +879,7 @@ function InnerAnnotationForm<Target extends ScoreTarget>({
                                     loading={deleteMutation.isPending}
                                     onClick={() => handleDeleteScore(index)}
                                   >
-                                    Delete
+                                    删除
                                   </Button>
                                 </div>
                               </PopoverContent>

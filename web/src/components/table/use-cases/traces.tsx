@@ -987,7 +987,7 @@ export default function TracesTable({
       headerTooltip: {
         description: (
           <>
-            Add <code>userId</code> to traces to track users. Read more about
+            添加 <code>userId</code> to traces to track users. Read more about
             user tracking{" "}
             <a
               href="https://langfuse.com/docs/observability/features/users"

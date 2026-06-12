@@ -222,7 +222,7 @@ export function IntroSection({ onStartForm }: { onStartForm: () => void }) {
             <SiGithub className="h-4 w-4" /> Community & Resources
           </div>
           <p className="text-muted-foreground mt-1 text-sm">
-            Join the conversation and connect with the Langfuse community.
+            Join the conversation and connect with the EvalBear community.
           </p>
           <div className="mt-3 grid grid-cols-1 gap-2">
             <Button asChild variant="ghost" className="justify-start px-1.5">

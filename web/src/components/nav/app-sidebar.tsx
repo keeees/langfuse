@@ -108,10 +108,10 @@ const DemoBadge = () => {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild tooltip="Your Langfuse Organizations">
+            <SidebarMenuButton asChild tooltip="Your EvalBear Organizations">
               <Link href="/">
                 <Grid2X2 className="h-4 w-4" />
-                <span>Your Langfuse Orgs</span>
+                <span>Your EvalBear Orgs</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

@@ -152,7 +152,7 @@ export function SelectWidgetDialog({
           </Button>
           <div className="flex gap-2">
             <Button onClick={() => onOpenChange(false)} variant="outline">
-              Cancel
+              取消
             </Button>
             <Button onClick={handleAddWidget} disabled={!selectedWidgetId}>
               Add Selected Widget

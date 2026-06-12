@@ -591,10 +591,10 @@ function SsoConfigDialog({
                   variant="ghost"
                   onClick={() => setDialogOpen(false)}
                 >
-                  Cancel
+                  取消
                 </Button>
                 <Button type="submit" loading={saveMutation.isPending}>
-                  Save
+                  保存
                 </Button>
               </DialogFooter>
             </form>
@@ -630,7 +630,7 @@ function SsoConfigDialog({
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>取消</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleConfirm}
               disabled={saveMutation.isPending}
@@ -715,7 +715,7 @@ function DeleteSsoConfigButton({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>取消</AlertDialogCancel>
           <AlertDialogAction
             onClick={() => deleteMutation.mutate({ orgId, domain })}
             disabled={deleteMutation.isPending}

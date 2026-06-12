@@ -19,7 +19,7 @@ import {
   UpdateMonitorSchema,
 } from "@langfuse/shared/monitors/server";
 
-/** monitorsProcedure protects every monitors route behind a Langfuse Cloud check and the `monitors` flag. */
+/** monitorsProcedure protects every monitors route behind a EvalBear Cloud check and the `monitors` flag. */
 const monitorsProcedure = protectedProjectProcedure
   .use(requireLangfuseCloud)
   .use(requireFeatureFlag("monitors"));

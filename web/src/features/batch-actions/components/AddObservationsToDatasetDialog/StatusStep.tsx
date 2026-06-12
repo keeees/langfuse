@@ -193,7 +193,7 @@ export function StatusStep({
               onClick={onClose}
               className={isComplete && hasPartialSuccess ? "flex-1" : "w-full"}
             >
-              Close
+              关闭
             </Button>
             {isComplete && hasPartialSuccess && (
               <Button

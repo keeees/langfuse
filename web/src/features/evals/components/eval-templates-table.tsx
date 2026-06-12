@@ -577,7 +577,7 @@ export default function EvalsTemplateTable({
             }
             cloneSourceId={cloneTemplateId}
             onBeforeSubmit={(template) => {
-              // Only show reference dialog for Langfuse maintained templates
+              // Only show reference dialog for EvalBear maintained templates
               if (
                 cloneTemplateId &&
                 cloneTemplate.data &&
@@ -623,7 +623,7 @@ export default function EvalsTemplateTable({
             <DialogTitle>Update running evaluators?</DialogTitle>
             <DialogDescription>
               Do you want all running evaluators attached to the original
-              Langfuse evaluator to reference your new project-level version?
+              EvalBear evaluator to reference your new project-level version?
               <br />
               <br />
               <strong>Warning:</strong> This might break workflows if you have

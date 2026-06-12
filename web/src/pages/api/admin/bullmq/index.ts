@@ -18,7 +18,7 @@ import {
 import { AdminApiAuthService } from "@/src/ee/features/admin-api/server/adminApiAuth";
 
 /* 
-This API route is used by Langfuse Cloud to retry failed bullmq jobs.
+This API route is used by EvalBear Cloud to retry failed bullmq jobs.
 */
 
 const BullStatus = z.enum([

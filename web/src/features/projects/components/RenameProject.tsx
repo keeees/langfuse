@@ -114,7 +114,7 @@ export default function RenameProject() {
                 disabled={form.getValues().name === "" || !hasAccess}
                 className="mt-4"
               >
-                Save
+                保存
               </Button>
             )}
           </form>

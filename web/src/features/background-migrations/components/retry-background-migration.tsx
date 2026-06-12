@@ -112,7 +112,7 @@ export function RetryBackgroundMigration({
             }}
             disabled={isLoading}
           >
-            Cancel
+            取消
           </Button>
           <Button
             type="button"

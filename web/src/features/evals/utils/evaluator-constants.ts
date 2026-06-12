@@ -47,7 +47,7 @@ export const INTERNAL_ENVIRONMENTS = [
   "sdk-experiment",
 ] as const;
 
-// Default filter for new trace evaluators - excludes internal Langfuse environments
+// Default filter for new trace evaluators - excludes internal EvalBear environments
 // to prevent evaluators from running on their own traces
 export const DEFAULT_TRACE_FILTER = [
   {

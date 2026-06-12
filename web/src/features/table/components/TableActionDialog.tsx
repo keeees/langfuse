@@ -162,7 +162,7 @@ export function TableActionDialog({
                   loading={isInProgress.isLoading}
                   disabled={isInProgress.data || !form.watch("targetId")}
                 >
-                  Confirm
+                  确认
                 </ActionButton>
               </DialogFooter>
             </form>
@@ -187,7 +187,7 @@ export function TableActionDialog({
               disabled={isInProgress.data}
               onClick={handleConfirm}
             >
-              Confirm
+              确认
             </ActionButton>
           </DialogFooter>
         )}

@@ -65,16 +65,16 @@ export function V4EnabledBanner() {
         <ZapIcon className="h-4 w-4 shrink-0" />
         <p className="flex flex-1 flex-row gap-1 text-sm">
           <span className="font-semibold">
-            Faster Langfuse experience enabled (preview).
+            Faster EvalBear experience enabled (preview).
           </span>{" "}
-          Missing real-time data? Upgrade your Langfuse SDK to the latest major
+          Missing real-time data? Upgrade your EvalBear SDK to the latest major
           version.{" "}
           <Link
             href={CHANGELOG_URL}
             target="_blank"
             className="flex flex-row items-center gap-1 underline underline-offset-2"
           >
-            Learn more
+            了解更多
             <ExternalLink className="h-3 w-3" />
           </Link>
         </p>

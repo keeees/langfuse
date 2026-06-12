@@ -1,7 +1,7 @@
 /**
  * MCP Tool: createTextPrompt
  *
- * Creates a new text prompt version in Langfuse.
+ * Creates a new text prompt version in EvalBear.
  */
 
 import { z } from "zod";
@@ -69,7 +69,7 @@ const CreateTextPromptInputSchema = z.object({
 export const [createTextPromptTool, handleCreateTextPrompt] = defineTool({
   name: "createTextPrompt",
   description: [
-    "Create a new text prompt version in Langfuse.",
+    "Create a new text prompt version in EvalBear.",
     "",
     "Important:",
     "- Prompts are immutable - cannot modify existing versions",

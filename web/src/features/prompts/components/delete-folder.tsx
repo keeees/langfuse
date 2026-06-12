@@ -152,7 +152,7 @@ export function DeleteFolder({ folderPath }: { folderPath: string }) {
             variant="ghost"
             onClick={() => setIsOpen(false)}
           >
-            Cancel
+            取消
           </Button>
           <Button
             type="button"

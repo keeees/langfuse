@@ -123,14 +123,14 @@ export function SpendAlertsTable({ orgId }: SpendAlertsTableProps) {
           <DropdownMenuContent align="end">
             <DropdownMenuItem onClick={() => setEditingAlert(row.original.id)}>
               <Edit className="mr-2 h-4 w-4" />
-              Edit
+              编辑
             </DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => setDeletingAlert(row.original.id)}
               className="text-destructive"
             >
               <Trash2 className="mr-2 h-4 w-4" />
-              Delete
+              删除
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

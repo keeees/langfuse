@@ -58,7 +58,7 @@ export const DeleteAutomationButton: React.FC<DeleteAutomationButtonProps> = ({
             disabled={!hasAccess}
           >
             <Trash className="h-4 w-4" />
-            <span className="sr-only">Delete</span>
+            <span className="sr-only">删除</span>
           </Button>
         ) : (
           <Button
@@ -67,7 +67,7 @@ export const DeleteAutomationButton: React.FC<DeleteAutomationButtonProps> = ({
             className="border-light-red flex items-center"
             disabled={!hasAccess}
           >
-            <span className="text-dark-red">Delete</span>
+            <span className="text-dark-red">删除</span>
           </Button>
         )}
       </PopoverTrigger>

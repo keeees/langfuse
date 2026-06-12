@@ -709,7 +709,7 @@ export function CreateLLMApiKeyForm({
               <FormItem>
                 <FormLabel>Provider name</FormLabel>
                 <FormDescription>
-                  Key to identify the connection within Langfuse. Cannot contain
+                  Key to identify the connection within EvalBear. Cannot contain
                   colons.
                 </FormDescription>
                 <FormControl>
@@ -734,7 +734,7 @@ export function CreateLLMApiKeyForm({
                   <FormItem>
                     <FormLabel>Authentication Method</FormLabel>
                     <FormDescription>
-                      Select how Langfuse should authenticate to Bedrock.
+                      Select how EvalBear should authenticate to Bedrock.
                     </FormDescription>
                     <FormControl>
                       <Tabs
@@ -1283,7 +1283,7 @@ export function CreateLLMApiKeyForm({
                         <FormLabel>Enable default models</FormLabel>
                         <FormDescription>
                           Default models for the selected adapter will be
-                          available in Langfuse features.
+                          available in EvalBear features.
                         </FormDescription>
                       </span>
 

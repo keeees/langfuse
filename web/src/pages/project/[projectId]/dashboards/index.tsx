@@ -22,7 +22,7 @@ export default function Dashboards() {
   return (
     <Page
       headerProps={{
-        title: "Dashboards",
+        title: "看板",
         help: {
           description: "Manage and create dashboards for your project.",
           href: "https://langfuse.com/docs/metrics/features/custom-dashboards",

@@ -31,7 +31,7 @@ export const notifications: SidebarNotification[] = [
     id: "lw5-1",
     title: "Launch Week: Day 1",
     description:
-      "Run experiments inside GitHub Actions to test every PR against a Langfuse dataset.",
+      "Run experiments inside GitHub Actions to test every PR against a EvalBear dataset.",
     link: "https://langfuse.com/changelog/2026-05-25-experiment-ci-cd-gates",
     linkTitle: "Learn more",
     createdAt: "2026-05-25",
@@ -40,7 +40,7 @@ export const notifications: SidebarNotification[] = [
     id: "lw5-2",
     title: "Launch Week: Day 2",
     description:
-      "Langfuse agent skill turns Langfuse into a headless platform to evaluate, query and instrument your application.",
+      "EvalBear agent skill turns EvalBear into a headless platform to evaluate, query and instrument your application.",
     link: "https://langfuse.com/changelog/2026-05-26-langfuse-agent-skill",
     linkTitle: "Learn more",
     createdAt: "2026-05-26",
@@ -66,21 +66,21 @@ export const notifications: SidebarNotification[] = [
     id: "lw5-5",
     title: "Launch Week: Day 5",
     description:
-      "Langfuse MCP now covers observations, metrics, scores, datasets, comments, and more.",
+      "EvalBear MCP now covers observations, metrics, scores, datasets, comments, and more.",
     link: "https://langfuse.com/changelog/2026-05-29-mcp-update",
     linkTitle: "Learn more",
     createdAt: "2026-05-29",
   },
   {
     id: "github-star",
-    title: "Star Langfuse",
+    title: "Star EvalBear",
     description:
       "See the latest releases and help grow the community on GitHub",
     link: "https://github.com/langfuse/langfuse",
     linkContent: (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        alt="Langfuse GitHub stars"
+        alt="EvalBear GitHub stars"
         src="https://img.shields.io/github/stars/langfuse/langfuse?label=langfuse&style=social"
       />
     ),

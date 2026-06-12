@@ -191,7 +191,7 @@ export function BatchExportsTable(props: { projectId: string }) {
                   setCancelDialogOpen(true);
                 }}
               >
-                Cancel
+                取消
               </ActionButton>
             </AlertDialogTrigger>
             <AlertDialogContent>

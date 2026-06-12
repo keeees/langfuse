@@ -93,7 +93,7 @@ const webCalloutFormSchema = z
       if (WEB_CALLOUT_BLOCKED_HEADER_NAMES.has(lowerName)) {
         ctx.addIssue({
           code: "custom",
-          message: "This header is set by Langfuse and cannot be customized.",
+          message: "This header is set by EvalBear and cannot be customized.",
           path: ["headers", index, "name"],
         });
       }
@@ -196,7 +196,7 @@ export function WebCalloutSettingsPage(props: { projectId: string }) {
 
       <p className="text-primary mb-4 text-sm">
         Configure a project-level callout endpoint for trace, observation, and
-        session detail actions. Langfuse sends a backend POST with ids only.
+        session detail actions. EvalBear sends a backend POST with ids only.
       </p>
 
       <Card className="overflow-auto">
@@ -365,7 +365,7 @@ function WebCalloutEndpointDialog(props: {
             {props.endpoint ? "Edit Callout Endpoint" : "Add Callout Endpoint"}
           </DialogTitle>
           <DialogDescription>
-            Langfuse sends a backend JSON POST when a user clicks a web callout
+            EvalBear sends a backend JSON POST when a user clicks a web callout
             action.
           </DialogDescription>
         </DialogHeader>
@@ -377,7 +377,7 @@ function WebCalloutEndpointDialog(props: {
                 <AlertTitle>Backend request requirements</AlertTitle>
                 <AlertDescription className="space-y-3">
                   <p>
-                    Langfuse sends this request from its backend. Your endpoint
+                    EvalBear sends this request from its backend. Your endpoint
                     must accept <code>POST</code> requests with{" "}
                     <code>Content-Type: application/json</code> and return HTTP
                     2xx within 5 seconds.
@@ -422,7 +422,7 @@ function WebCalloutEndpointDialog(props: {
                     </FormControl>
                     <FormDescription>
                       HTTP or HTTPS URL. Custom ports are allowed. The endpoint
-                      is called from the Langfuse backend.
+                      is called from the EvalBear backend.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -562,7 +562,7 @@ function WebCalloutEndpointDialog(props: {
                 variant="ghost"
                 onClick={() => props.onOpenChange(false)}
               >
-                Cancel
+                取消
               </Button>
               <Button type="submit" loading={upsertMutation.isPending}>
                 Save endpoint
@@ -604,7 +604,7 @@ function DeleteEndpointButton(props: {
         </DialogHeader>
         <DialogFooter>
           <Button variant="ghost" onClick={() => setOpen(false)}>
-            Cancel
+            取消
           </Button>
           <Button
             variant="destructive"

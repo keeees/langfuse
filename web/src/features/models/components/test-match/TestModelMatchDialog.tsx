@@ -111,7 +111,7 @@ export function TestModelMatchDialog({
                   onClick={() => onOpenChange(false)}
                   className="flex-1"
                 >
-                  Close
+                  关闭
                 </Button>
                 <Button
                   type="submit"

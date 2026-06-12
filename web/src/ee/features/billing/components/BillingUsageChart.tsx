@@ -1,4 +1,4 @@
-// Langfuse Cloud only
+// EvalBear Cloud only
 
 import { api } from "@/src/utils/api";
 import { useQueryOrganization } from "@/src/features/organizations/hooks";

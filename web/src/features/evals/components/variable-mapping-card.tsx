@@ -221,7 +221,7 @@ export const VariableMappingCard = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Edit prompt
+                编辑提示词
                 <ExternalLink className="ml-1 h-4 w-4" />
               </Link>
             </Button>
@@ -232,7 +232,7 @@ export const VariableMappingCard = ({
               disabled
               title="Only user-managed templates can be edited"
             >
-              Edit prompt
+              编辑提示词
               <ExternalLink className="ml-1 h-4 w-4" />
             </Button>
           )}
@@ -351,7 +351,7 @@ export const VariableMappingCard = ({
                                 <VariableMappingDescription
                                   title="Object"
                                   description={
-                                    "Langfuse object to retrieve the data from."
+                                    "EvalBear object to retrieve the data from."
                                   }
                                   href={
                                     "https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge"
@@ -416,7 +416,7 @@ export const VariableMappingCard = ({
                                     <VariableMappingDescription
                                       title={"Object Name"}
                                       description={
-                                        "Name of the Langfuse object to retrieve the data from."
+                                        "Name of the EvalBear object to retrieve the data from."
                                       }
                                       href={
                                         "https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge"
@@ -516,7 +516,7 @@ export const VariableMappingCard = ({
                                 <VariableMappingDescription
                                   title={"Object Field"}
                                   description={
-                                    "Field on the Langfuse object to insert into the template."
+                                    "Field on the EvalBear object to insert into the template."
                                   }
                                   href={
                                     "https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge"

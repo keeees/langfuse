@@ -441,7 +441,7 @@ export function UpsertScoreConfigDialog({
                       createScoreConfig.isPending || updateScoreConfig.isPending
                     }
                   >
-                    Submit
+                    提交
                   </Button>
                 </div>
               </DialogFooter>

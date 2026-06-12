@@ -167,7 +167,7 @@ const DuplicatePromptForm: React.FC<{
             loading={duplicatePrompt.isPending}
             className="mt-auto w-full"
           >
-            Submit
+            提交
           </Button>
         </DialogFooter>
       </form>
@@ -215,7 +215,7 @@ export const DuplicatePromptButton: React.FC<{
             capture("prompt_detail:duplicate_button_click");
           }}
         >
-          <span className="hidden md:ml-1 md:inline">Duplicate</span>
+          <span className="hidden md:ml-1 md:inline">复制</span>
         </ActionButton>
       </DialogTrigger>
       <DialogContent className="max-h-[90vh] min-h-0">

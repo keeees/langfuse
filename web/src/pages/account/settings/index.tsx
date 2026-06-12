@@ -111,7 +111,7 @@ function UpdateDisplayName() {
               disabled={form.getValues().name === ""}
               className="mt-4"
             >
-              Save
+              保存
             </Button>
           </form>
         </Form>

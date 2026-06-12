@@ -103,7 +103,7 @@ export const CorrectedOutputDiffDialog: React.FC<
         </DialogBody>
 
         <DialogFooter>
-          <Button onClick={() => setIsOpen(false)}>Close</Button>
+          <Button onClick={() => setIsOpen(false)}>关闭</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

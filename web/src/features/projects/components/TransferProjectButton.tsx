@@ -171,7 +171,7 @@ export function TransferProjectButton() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Confirm</FormLabel>
+                    <FormLabel>确认</FormLabel>
                     <FormControl>
                       <Input placeholder={confirmMessage} {...field} />
                     </FormControl>

@@ -217,7 +217,7 @@ export default function ProtectedLabelsSettings({
               hasAccess={hasAccess}
               hasEntitlement={hasEntitlement}
             >
-              Add
+              添加
             </ActionButton>
           </form>
         </Form>

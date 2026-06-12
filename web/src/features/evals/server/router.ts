@@ -1221,7 +1221,7 @@ export const evalRouter = createTRPCRouter({
             if (!cloneSourceTemplate) {
               throw new TRPCError({
                 code: "NOT_FOUND",
-                message: "Langfuse managed template not found",
+                message: "EvalBear managed template not found",
               });
             }
             if (cloneSourceTemplate.type !== input.type) {

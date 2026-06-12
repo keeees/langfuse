@@ -133,7 +133,7 @@ export const PromptVersionDiffDialog: React.FC<PromptVersionDiffDialogProps> = (
               setIsOpen(false);
             }}
           >
-            Close
+            关闭
           </Button>
         </DialogFooter>
       </DialogContent>

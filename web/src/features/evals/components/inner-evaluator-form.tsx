@@ -270,7 +270,7 @@ const ObservationsPreview = memo(
                       rel="noopener noreferrer"
                       className="text-dark-blue font-medium hover:opacity-80"
                     >
-                      Learn more
+                      了解更多
                     </a>
                     .
                   </span>
@@ -904,7 +904,7 @@ export const InnerEvaluatorForm = (props: {
                             className="min-w-[100px] gap-1.5"
                           >
                             <CircleDot className="h-3.5 w-3.5" />
-                            Observations
+                            监控
                           </TabsTrigger>
                           {allowLegacy && (
                             <TabsTrigger
@@ -929,7 +929,7 @@ export const InnerEvaluatorForm = (props: {
                             className="min-w-[100px] gap-1.5"
                           >
                             <FlaskConical className="h-3.5 w-3.5" />
-                            Experiments
+                            实验
                           </TabsTrigger>
                         </TabsList>
                       </Tabs>
@@ -1205,7 +1205,7 @@ export const InnerEvaluatorForm = (props: {
 
                     return (
                       <FormItem>
-                        <FormLabel>Filter</FormLabel>
+                        <FormLabel>筛选</FormLabel>
                         <FormControl>
                           <div className="max-w-[500px]">
                             {props.disabled && !hasFilters ? (
@@ -1448,7 +1448,7 @@ export const InnerEvaluatorForm = (props: {
               variant="outline"
               onClick={() => setShowTraceConfirmDialog(false)}
             >
-              Cancel
+              取消
             </Button>
             <Button
               onClick={() => {
@@ -1468,7 +1468,7 @@ export const InnerEvaluatorForm = (props: {
                 form.setValue("target", actualTarget);
               }}
             >
-              Continue
+              继续
             </Button>
           </DialogFooter>
         </DialogContent>

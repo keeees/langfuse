@@ -116,7 +116,7 @@ export const ReviewPromptDialog: React.FC<ReviewPromptDialogProps> = (
             onClick={() => setOpen(false)}
             className="min-w-32"
           >
-            Cancel
+            取消
           </Button>
           <Button
             onClick={onConfirm}

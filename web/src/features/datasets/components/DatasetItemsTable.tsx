@@ -286,7 +286,7 @@ export function DatasetItemsTable({
                 }}
               >
                 <Edit className="mr-2 h-4 w-4" />
-                Edit
+                编辑
               </DropdownMenuItem>
               <DropdownMenuItem
                 disabled={!hasAccess || !!selectedVersion}
@@ -330,7 +330,7 @@ export function DatasetItemsTable({
                 }}
               >
                 <Trash2 className="mr-2 h-4 w-4" />
-                Delete
+                删除
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

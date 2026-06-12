@@ -35,7 +35,7 @@ export const TraceAnnotationProcessor: React.FC<
     }
   }, [item, setCurrentObservationId]);
 
-  if (!data) return <div className="p-3">Loading...</div>;
+  if (!data) return <div className="p-3">加载中...</div>;
 
   const leftPanel = (
     <Trace

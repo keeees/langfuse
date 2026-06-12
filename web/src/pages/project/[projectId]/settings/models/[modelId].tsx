@@ -112,7 +112,7 @@ export default function ModelDetailPage() {
   const isLangfuseModel = !Boolean(model?.projectId);
 
   if (isLoading || !model) {
-    return <div className="p-3">Loading...</div>;
+    return <div className="p-3">加载中...</div>;
   }
 
   return (
@@ -178,7 +178,7 @@ export default function ModelDetailPage() {
                 Maintained by
               </div>
               <div className="mt-1 text-sm">
-                {isLangfuseModel ? "Langfuse" : "User"}
+                {isLangfuseModel ? "EvalBear" : "User"}
               </div>
             </div>
 
@@ -309,7 +309,7 @@ export default function ModelDetailPage() {
                   href={`/project/${projectId}/observations`}
                   className="flex items-center gap-1"
                 >
-                  <span className="text-sm">View all</span>
+                  <span className="text-sm">查看全部</span>
                   <SquareArrowOutUpRight className="h-4 w-4" />
                 </Link>
               </Button>

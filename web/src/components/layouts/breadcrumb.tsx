@@ -34,7 +34,7 @@ const LoadingMenuItem = () => (
     <span className="mr-1.5 inline-flex">
       <Spinner size="sm" />
     </span>
-    Loading...
+    加载中...
   </DropdownMenuItem>
 );
 

@@ -249,7 +249,7 @@ export function TraceDetailView({
                 </TabsBarTrigger>
               )}
               {showScoresTab && (
-                <TabsBarTrigger value="scores">Scores</TabsBarTrigger>
+                <TabsBarTrigger value="scores">评分</TabsBarTrigger>
               )}
 
               {/* View toggle (Formatted/JSON) - show for preview and log tabs when pretty view available */}

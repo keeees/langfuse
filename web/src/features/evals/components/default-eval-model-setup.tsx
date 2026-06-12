@@ -161,7 +161,7 @@ export function DefaultEvalModelSetup({ projectId }: { projectId: string }) {
             <div className="flex flex-col gap-2">
               <div className="mt-2 flex justify-end gap-2">
                 <Button variant="outline" onClick={() => setIsEditing(false)}>
-                  Cancel
+                  取消
                 </Button>
                 {selectedModel ? (
                   <UpdateButton
@@ -174,7 +174,7 @@ export function DefaultEvalModelSetup({ projectId }: { projectId: string }) {
                     disabled={!hasWriteAccess || !modelParams.provider.value}
                     onClick={executeUpsertMutation}
                   >
-                    Save
+                    保存
                   </Button>
                 )}
               </div>
@@ -252,7 +252,7 @@ function UpdateButton({
               executeUpsertMutation();
             }}
           >
-            Confirm
+            确认
           </Button>
         </div>
       </PopoverContent>

@@ -84,7 +84,7 @@ export const SlackConnectionCard: React.FC<SlackConnectionCardProps> = ({
         <CardContent>
           <div className="text-muted-foreground flex items-center gap-2">
             <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-            <span>Loading...</span>
+            <span>加载中...</span>
           </div>
         </CardContent>
       </Card>

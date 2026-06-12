@@ -238,7 +238,7 @@ export function PromptSelectionDialog({
 
         <DialogFooter>
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            取消
           </Button>
           <Button type="button" onClick={handleConfirm} disabled={!selectedTag}>
             {onSelect ? "Insert" : "Copy and close"}

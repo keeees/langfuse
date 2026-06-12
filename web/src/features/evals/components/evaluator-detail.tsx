@@ -76,7 +76,7 @@ export const EvaluatorDetail = () => {
     allTemplates.isLoading ||
     !allTemplates.data
   ) {
-    return <div className="p-3">Loading...</div>;
+    return <div className="p-3">加载中...</div>;
   }
 
   if (evaluator.data && evaluator.data.evalTemplate === null) {

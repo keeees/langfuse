@@ -257,7 +257,7 @@ export function PreviewCsvImport({
           </div>
         )}
         <Button variant="outline" onClick={handleCancel}>
-          Cancel
+          取消
         </Button>
         <Button
           disabled={

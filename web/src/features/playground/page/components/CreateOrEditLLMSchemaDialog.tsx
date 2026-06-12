@@ -272,7 +272,7 @@ export const CreateOrEditLLMSchemaDialog: React.FC<
                       onClick={handleDelete}
                       className="mr-auto"
                     >
-                      Delete
+                      删除
                     </Button>
                   )}
                   <Button
@@ -280,9 +280,9 @@ export const CreateOrEditLLMSchemaDialog: React.FC<
                     variant="outline"
                     onClick={() => setOpen(false)}
                   >
-                    Cancel
+                    取消
                   </Button>
-                  <Button type="submit">Save</Button>
+                  <Button type="submit">保存</Button>
                 </div>
               </div>
             </DialogFooter>

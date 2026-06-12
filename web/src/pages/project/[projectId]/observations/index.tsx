@@ -41,7 +41,7 @@ export default function Generations() {
   return (
     <Page
       headerProps={{
-        title: "Tracing",
+        title: "追踪",
         help: {
           description:
             "An observation captures a single function call in an application. See docs to learn more.",

@@ -70,10 +70,10 @@ const getPythonCode = (
   name: string,
   version: number,
   labels: string[],
-) => `from langfuse import Langfuse
+) => `from langfuse import EvalBear
 
-# Initialize Langfuse client
-langfuse = Langfuse()
+# Initialize EvalBear client
+langfuse = EvalBear()
 
 # Get production prompt
 prompt = langfuse.get_prompt("${name}")
@@ -92,7 +92,7 @@ const getJsCode = (
   labels: string[],
 ) => `import { LangfuseClient } from "@langfuse/client";
 
-// Initialize the Langfuse client
+// Initialize the EvalBear client
 const langfuse = new LangfuseClient();
 
 // Get production prompt
@@ -256,7 +256,7 @@ export const PromptDetail = ({
   }, [prompt?.id]);
 
   if (!promptHistory.data || !prompt) {
-    return <div className="p-3">Loading...</div>;
+    return <div className="p-3">加载中...</div>;
   }
 
   const extractedVariables = prompt
@@ -280,7 +280,7 @@ export const PromptDetail = ({
         itemType: "PROMPT",
         help: {
           description:
-            "You can use this prompt within your application through the Langfuse SDKs and integrations. Refer to the documentation for more information.",
+            "You can use this prompt within your application through the EvalBear SDKs and integrations. Refer to the documentation for more information.",
           href: "https://langfuse.com/docs/prompts",
         },
         breadcrumb: [

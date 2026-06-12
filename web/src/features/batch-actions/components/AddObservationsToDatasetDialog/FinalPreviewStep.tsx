@@ -208,7 +208,7 @@ function PreviewCard({
           className="h-7 gap-1 text-xs"
         >
           <Pencil className="h-3 w-3" />
-          Edit
+          编辑
         </Button>
       </div>
       <div className="max-h-62 overflow-auto">

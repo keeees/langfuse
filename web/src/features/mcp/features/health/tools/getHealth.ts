@@ -18,7 +18,7 @@ const HealthResponseSchema = z
 export const [getHealthTool, handleGetHealth] = defineTool({
   name: "getHealth",
   description:
-    "Check Langfuse API health. Optionally verify database availability and recent trace/observation ingestion.",
+    "Check EvalBear API health. Optionally verify database availability and recent trace/observation ingestion.",
   baseSchema: HealthInputSchema,
   inputSchema: HealthInputSchema,
   handler: async (input, context) =>

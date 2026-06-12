@@ -941,7 +941,7 @@ export const InnerEvalTemplateForm = (props: {
           disabled={showCodeTemplateForm && !isCodeEvalSourceValid}
           className="w-full"
         >
-          Save
+          保存
         </Button>
       )}
       {formError ? (
@@ -1004,7 +1004,7 @@ function CodeEvalSdkVersionCallout({
               rel="noopener noreferrer"
               className="text-dark-blue font-medium hover:opacity-80"
             >
-              Learn more
+              了解更多
             </a>
             .
           </span>

@@ -255,7 +255,7 @@ export function RunEvaluationDialog(props: RunEvaluationDialogProps) {
                 disabled={runEvaluationMutation.isPending}
               >
                 <ChevronLeft className="mr-1 h-4 w-4" />
-                Back
+                返回
               </Button>
             ) : (
               <div />

@@ -61,7 +61,7 @@ export function createInAppAgentInstrumentation({
       environment: tracing.environment,
     });
   } catch (error) {
-    logger.warn("Failed to initialize in-app agent Langfuse tracing", error);
+    logger.warn("Failed to initialize in-app agent EvalBear tracing", error);
     return undefined;
   }
 }
@@ -181,7 +181,7 @@ export class InAppAgentInstrumentation {
 
   flush() {
     this.processTracedEvents().catch((error) => {
-      logger.warn("Failed to flush in-app agent Langfuse tracing", error);
+      logger.warn("Failed to flush in-app agent EvalBear tracing", error);
     });
   }
 

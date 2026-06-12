@@ -960,7 +960,7 @@ export function NumericFacet({
     >
       <div className="px-4 py-2">
         {loading ? (
-          <div className="text-muted-foreground text-sm">Loading...</div>
+          <div className="text-muted-foreground text-sm">加载中...</div>
         ) : (
           <div className="grid gap-4">
             <div className="flex items-center gap-4">
@@ -1090,7 +1090,7 @@ export function StringFacet({
     >
       <div className="px-4">
         {loading ? (
-          <div className="text-muted-foreground text-sm">Loading...</div>
+          <div className="text-muted-foreground text-sm">加载中...</div>
         ) : (
           <Input
             type="text"
@@ -1135,9 +1135,7 @@ export function KeyValueFacet({
       onReset={onReset}
     >
       {loading ? (
-        <div className="text-muted-foreground px-4 py-2 text-sm">
-          Loading...
-        </div>
+        <div className="text-muted-foreground px-4 py-2 text-sm">加载中...</div>
       ) : (
         <KeyValueFilterBuilder
           mode="categorical"
@@ -1180,9 +1178,7 @@ export function NumericKeyValueFacet({
       onReset={onReset}
     >
       {loading ? (
-        <div className="text-muted-foreground px-4 py-2 text-sm">
-          Loading...
-        </div>
+        <div className="text-muted-foreground px-4 py-2 text-sm">加载中...</div>
       ) : (
         <KeyValueFilterBuilder
           mode="numeric"
@@ -1224,9 +1220,7 @@ export function StringKeyValueFacet({
       onReset={onReset}
     >
       {loading ? (
-        <div className="text-muted-foreground px-4 py-2 text-sm">
-          Loading...
-        </div>
+        <div className="text-muted-foreground px-4 py-2 text-sm">加载中...</div>
       ) : (
         <KeyValueFilterBuilder
           mode="string"
@@ -1355,7 +1349,7 @@ function TextFilterSection({
           disabled={inputValue.length === 0}
           className="h-7 shrink-0 px-2 text-xs"
         >
-          Add
+          添加
         </Button>
       </div>
 

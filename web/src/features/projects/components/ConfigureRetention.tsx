@@ -134,7 +134,7 @@ export default function ConfigureRetention() {
               className="mt-4"
               type="submit"
             >
-              Save
+              保存
             </ActionButton>
           </form>
         </Form>

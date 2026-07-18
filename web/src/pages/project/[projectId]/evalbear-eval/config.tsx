@@ -146,6 +146,32 @@ export default function EvalConfigPage() {
     }
   };
 
+  const handleClearKey = async (
+    clearField:
+      | "clear_api_key"
+      | "clear_service_api_key"
+      | "clear_judge_api_key",
+  ) => {
+    setIsSaving(true);
+    setError(null);
+    try {
+      const res = await fetch(
+        `/api/redbear/eval/projects/${projectId}/config?projectId=${projectId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ [clearField]: true }),
+        },
+      );
+      if (!res.ok) throw new Error(`清除失败 (${res.status})`);
+      await fetchConfig();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "清除失败");
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   const handleCheck = async () => {
     setIsChecking(true);
     setCheckResult(null);
@@ -285,6 +311,18 @@ export default function EvalConfigPage() {
                   ) : (
                     <Badge variant="secondary">未设置</Badge>
                   )}
+                  {config?.api_key_set && (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="text-destructive h-6 px-2 text-xs"
+                      disabled={isSaving}
+                      onClick={() => handleClearKey("clear_api_key")}
+                    >
+                      清除
+                    </Button>
+                  )}
                 </div>
                 <Input
                   type="password"
@@ -315,6 +353,18 @@ export default function EvalConfigPage() {
                     <Badge variant="default">已设置</Badge>
                   ) : (
                     <Badge variant="secondary">未设置</Badge>
+                  )}
+                  {config?.service_api_key_set && (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="text-destructive h-6 px-2 text-xs"
+                      disabled={isSaving}
+                      onClick={() => handleClearKey("clear_service_api_key")}
+                    >
+                      清除
+                    </Button>
                   )}
                 </div>
                 <Input
@@ -377,6 +427,18 @@ export default function EvalConfigPage() {
                     <Badge variant="default">已设置</Badge>
                   ) : (
                     <Badge variant="secondary">未设置</Badge>
+                  )}
+                  {config?.judge_api_key_set && (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="text-destructive h-6 px-2 text-xs"
+                      disabled={isSaving}
+                      onClick={() => handleClearKey("clear_judge_api_key")}
+                    >
+                      清除
+                    </Button>
                   )}
                 </div>
                 <Input

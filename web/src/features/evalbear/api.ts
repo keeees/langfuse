@@ -60,11 +60,34 @@ export function fetchTrials(
   runId: string,
   params?: Record<string, string>,
 ) {
-  const qs = params ? "&" + new URLSearchParams(params).toString() : "";
+  const query = new URLSearchParams({ limit: "200", ...(params ?? {}) });
   return request<PaginatedTrials>(
-    `runs/${encodeURIComponent(runId)}/trials?limit=200${qs}`,
+    `runs/${encodeURIComponent(runId)}/trials?${query.toString()}`,
     projectId,
   );
+}
+
+export async function fetchAllTrials(projectId: string, runId: string) {
+  const pageSize = 2000;
+  const trials: EvalTrial[] = [];
+  let offset = 0;
+
+  while (true) {
+    const page = await fetchTrials(projectId, runId, {
+      limit: String(pageSize),
+      offset: String(offset),
+    });
+    trials.push(...page.trials);
+    offset += page.trials.length;
+
+    if (
+      page.trials.length === 0 ||
+      page.trials.length < pageSize ||
+      (page.total !== undefined && offset >= page.total)
+    ) {
+      return trials;
+    }
+  }
 }
 
 export function fetchTrial(projectId: string, trialId: string | number) {

@@ -183,9 +183,9 @@ export const RemoteExperimentUpsertForm = ({
               <Spinner size="sm" display="inline" />
             )}
           </strong>
-          . Configure a webhook URL to trigger remote custom dataset runs from
-          UI. We will send dataset info (name, id) and config to your service,
-          which can run against the dataset and post results to EvalBear.
+          。配置 webhook URL 以从 UI 触发远程自定义数据集运行。
+          我们将向您的服务发送数据集信息（名称、ID）和配置，
+          然后您的服务可以针对数据集运行并将结果发布到 EvalBear。
         </DialogDescription>
       </DialogHeader>
 

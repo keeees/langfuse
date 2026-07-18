@@ -19,19 +19,19 @@ export function V4IntroDialog({
     <Dialog open={open} onOpenChange={(o) => !o && onDismiss()}>
       <DialogContent
         className="[&>div:last-child]:hidden"
-        aria-label="Welcome to a faster EvalBear"
+        aria-label="欢迎体验更快的 EvalBear"
       >
         <DialogBody>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/assets/v4-beta-intro.jpg"
-            alt="EvalBear gets Faster — performance comparison showing 5x to 165x speedups"
+            alt="EvalBear 更快了 — 性能对比显示 5 倍到 165 倍的加速"
             className="w-full rounded-md"
           />
           <ul className="flex flex-col gap-3">
             <li className="text-muted-foreground text-sm">
               <span className="text-foreground block font-medium">
-                Welcome to a faster EvalBear
+                欢迎体验更快的 EvalBear
               </span>{" "}
               We&apos;ve rebuilt the data model around observations rather than
               traces, which means charts, filters, and APIs are dramatically

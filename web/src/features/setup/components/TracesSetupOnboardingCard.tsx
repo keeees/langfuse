@@ -9,14 +9,11 @@ import { api } from "@/src/utils/api";
 import { type RouterOutput } from "@/src/utils/types";
 import { usePostHogClientCapture } from "@/src/features/posthog-analytics/usePostHogClientCapture";
 import { Check, Copy, LockIcon, Sparkles } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
 
 const SKILLS_INSTALL_COMMAND =
-  "Install the EvalBear AI skill from github.com/langfuse/skills and use it to add tracing to this application with EvalBear following best practices.";
-const MANUAL_TRACING_DOCS_URL =
-  "https://langfuse.com/docs/observability/get-started";
+  "安装来自 github.com/langfuse/skills 的 EvalBear AI 技能，并使用它按照最佳实践将追踪功能添加到此应用中。";
 
 function CopyableSnippet({
   value,
@@ -88,14 +85,13 @@ export function TracesSetupOnboardingCard({
 
   return (
     <SplashScreen
-      waitingFor="Waiting for first trace"
-      title="Time to log your first trace, it only takes a minute"
-      description="Get your API keys first, then ask your coding agent to add observability with EvalBear to your application."
+      waitingFor="等待第一条追踪"
+      title="这里展示 Agent 与模型调用过程"
+      description="要创建批量评测，请进入「评测中心」。下面的步骤帮助您接入追踪。"
       steps={[
         {
-          title: "Create API keys",
-          description:
-            "Your application needs API keys to send traces to EvalBear.",
+          title: "创建 API Key",
+          description: "您的应用需要 API 密钥才能向 EvalBear 发送追踪数据。",
           content: apiKeys ? (
             <ApiKeyRender
               generatedKeys={apiKeys}
@@ -110,7 +106,7 @@ export function TracesSetupOnboardingCard({
                   loading={mutCreateApiKey.isPending}
                   className="self-start"
                 >
-                  Create new API key
+                  创建 API Key
                 </Button>
               ) : (
                 <Button disabled className="self-start">
@@ -118,28 +114,28 @@ export function TracesSetupOnboardingCard({
                     className="mr-2 -ml-0.5 h-4 w-4"
                     aria-hidden="true"
                   />
-                  Create new API key
+                  创建 API Key
                 </Button>
               )}
               <ActionButton
                 href={`/project/${projectId}/settings/api-keys`}
                 variant="secondary"
               >
-                Manage API keys
+                管理 API Key
               </ActionButton>
             </div>
           ),
         },
         {
-          title: "Add tracing with your coding agent",
+          title: "接入追踪",
           badge: (
             <Badge variant="tertiary" className="gap-1">
               <Sparkles className="h-3 w-3" />
-              Recommended
+              推荐
             </Badge>
           ),
           description:
-            "Paste this prompt into Claude, Cursor, Copilot, or another coding agent.",
+            "将以下提示粘贴到 Claude、Cursor、Copilot 或其他编码代理中。",
           content: (
             <>
               <CopyableSnippet
@@ -150,29 +146,21 @@ export function TracesSetupOnboardingCard({
                   })
                 }
               />
-              <div className="mt-3">
-                <Link
-                  href={MANUAL_TRACING_DOCS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary inline-flex text-sm underline underline-offset-4 hover:no-underline"
-                  onClick={() =>
-                    capture("onboarding:tracing_manual_docs_link_clicked", {
-                      href: MANUAL_TRACING_DOCS_URL,
-                      projectId,
-                    })
-                  }
-                >
-                  or follow our docs to set up tracing manually
-                </Link>
-              </div>
             </>
           ),
         },
         {
-          title: "Run your app — traces will appear here",
+          title: "打开评测中心",
           description:
-            "Once your app makes an LLM call, traces show up within seconds.",
+            "追踪接入后，可前往评测中心创建 Agent / 记忆 / RAG 批量评测。",
+          content: (
+            <ActionButton
+              href={`/project/${projectId}/evalbear-eval`}
+              variant="secondary"
+            >
+              打开评测中心
+            </ActionButton>
+          ),
         },
       ]}
     />

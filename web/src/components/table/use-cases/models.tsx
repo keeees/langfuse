@@ -57,7 +57,7 @@ const modelConfigDescriptions = {
   config:
     "Some tokenizers require additional configuration (e.g. openai tiktoken). See docs for details.",
   maintainer:
-    "Maintainer of the model. EvalBear managed models can be cloned, user managed models can be edited and deleted. To supersede a EvalBear managed model, set the custom model name to the EvalBear model name.",
+    "模型的维护者。EvalBear 托管的模型可以克隆，用户管理的模型可以编辑和删除。要覆盖 EvalBear 托管的模型，请将自定义模型名称设置为 EvalBear 模型名称。",
   lastUsed: "Start time of the latest generation using this model",
 } as const;
 
@@ -145,7 +145,7 @@ export default function ModelTable({ projectId }: { projectId: string }) {
                 )}
               </TooltipTrigger>
               <TooltipContent>
-                {isLangfuse ? "EvalBear maintained" : "User maintained"}
+                {isLangfuse ? "EvalBear 维护" : "用户维护"}
               </TooltipContent>
             </Tooltip>
           </div>

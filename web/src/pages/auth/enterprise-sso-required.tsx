@@ -6,7 +6,7 @@ import { signIn } from "next-auth/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
-import { LangfuseIcon } from "@/src/components/LangfuseLogo";
+import { LangfuseIcon as EvalBearIcon } from "@/src/components/LangfuseLogo";
 import { Button } from "@/src/components/ui/button";
 import {
   Form,
@@ -110,7 +110,7 @@ export default function EnterpriseSsoRequiredPage() {
 
       if (response.status === 404) {
         setError(
-          "We couldn't find a custom Enterprise SSO configuration for this domain. Double-check your company email or contact your administrator.",
+          "未找到该域名对应的企业 SSO 配置，请确认企业邮箱是否正确，或联系您的管理员。",
         );
         return;
       }
@@ -118,38 +118,33 @@ export default function EnterpriseSsoRequiredPage() {
       const data = (await response.json().catch(() => null)) as {
         message?: string;
       } | null;
-      setError(
-        data?.message ??
-          "Unable to start the Enterprise SSO sign-in flow. Please try again.",
-      );
+      setError(data?.message ?? "无法启动企业 SSO 登录流程，请稍后重试。");
     } catch (err) {
       captureException(err);
-      setError(
-        "Something went wrong while checking your Enterprise SSO configuration. Please try again.",
-      );
+      setError("检查企业 SSO 配置时出错，请稍后重试。");
     } finally {
       setLoading(false);
     }
   }
 
   const description = friendlyProviderName
-    ? `You tried signing in with ${friendlyProviderName}, but this domain requires your company's custom Enterprise SSO.`
-    : "This domain requires your company's custom Enterprise SSO.";
+    ? `您尝试使用 ${friendlyProviderName} 登录，但此域名需要使用企业自定义 SSO。`
+    : "此域名需要使用企业自定义 SSO。";
 
   return (
     <>
       <Head>
-        <title>Enterprise SSO Required | EvalBear</title>
+        <title>需要企业 SSO | EvalBear</title>
       </Head>
       <div className="min-h-screen-with-banner bg-background flex flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <LangfuseIcon className="mx-auto" />
+          <EvalBearIcon className="mx-auto" />
           <h1 className="text-primary mt-6 text-center text-2xl font-bold">
-            Use your Enterprise SSO
+            使用企业 SSO 登录
           </h1>
           <p className="text-muted-foreground mt-2 text-center text-sm leading-6">
-            {description} Enter your company email so we can send you to the
-            correct identity provider.
+            {description}
+            请输入您的企业邮箱，我们将引导您前往对应的身份认证服务。
           </p>
         </div>
 
@@ -161,10 +156,10 @@ export default function EnterpriseSsoRequiredPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>企业邮箱</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="jsdoe@example.com"
+                        placeholder="you@your-company.com"
                         allowPasswordManager
                         autoComplete="email"
                         {...field}
@@ -181,7 +176,7 @@ export default function EnterpriseSsoRequiredPage() {
                 loading={loading}
                 disabled={loading}
               >
-                Continue with Enterprise SSO
+                继续企业 SSO 登录
               </Button>
             </form>
           </Form>
@@ -189,14 +184,7 @@ export default function EnterpriseSsoRequiredPage() {
             <div className="text-destructive mt-4 text-center text-sm font-medium">
               {error}
               <br />
-              Contact{" "}
-              <a
-                href="mailto:support@langfuse.com"
-                className="text-primary-accent hover:text-hover-primary-accent"
-              >
-                support@langfuse.com
-              </a>{" "}
-              if this keeps happening.
+              如问题持续出现，请联系您的管理员。
             </div>
           ) : null}
           <div className="text-muted-foreground mt-6 text-center text-sm">
@@ -204,20 +192,13 @@ export default function EnterpriseSsoRequiredPage() {
               href="/auth/sign-in"
               className="text-primary-accent hover:text-hover-primary-accent"
             >
-              Back to other sign-in options
+              返回其他登录方式
             </Link>
           </div>
         </div>
 
         <div className="text-muted-foreground mt-4 text-center text-xs">
-          Need help? Contact{" "}
-          <a
-            href="mailto:support@langfuse.com"
-            className="text-primary-accent hover:text-hover-primary-accent"
-          >
-            support@langfuse.com
-          </a>
-          .
+          需要帮助？请联系您的管理员。
         </div>
       </div>
     </>

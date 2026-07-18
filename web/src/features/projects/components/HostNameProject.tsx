@@ -12,7 +12,7 @@ export function HostNameProject() {
       <Card className="mb-4 p-3">
         <div className="">
           <div className="mb-2 text-sm">
-            When connecting to EvalBear, use this hostname / baseurl.
+            连接 EvalBear 时，请使用此主机名 / 基础 URL。
           </div>
           <CodeView
             content={`${uiCustomization?.hostname ?? window.origin}${env.NEXT_PUBLIC_BASE_PATH ?? ""}`}

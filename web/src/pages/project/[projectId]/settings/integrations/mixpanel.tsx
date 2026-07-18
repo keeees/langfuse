@@ -96,11 +96,9 @@ export default function MixpanelIntegrationSettings() {
         <Link href="https://mixpanel.com" className="underline">
           Mixpanel
         </Link>{" "}
-        to sync your EvalBear traces, generations, and scores for advanced
-        product analytics. Upon activation, all historical data from your
-        project will be synced. After the initial sync, new data is
-        automatically synced every hour to keep your Mixpanel dashboards up to
-        date.
+        以同步您的 EvalBear 追踪、生成记录和评分，用于高级产品分析。
+        激活后，项目中的所有历史数据将被同步。初始同步后，新数据每小时自动同步以保持
+        Mixpanel 仪表板 date.
       </p>
       {!hasAccess && (
         <p className="text-sm">

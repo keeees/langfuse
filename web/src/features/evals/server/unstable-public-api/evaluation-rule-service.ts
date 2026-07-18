@@ -367,8 +367,7 @@ export async function updatePublicEvaluationRule(params: {
     throw createUnstablePublicApiError({
       httpCode: 400,
       code: "invalid_body",
-      message:
-        "Code evaluator mappings are managed by EvalBear and cannot be provided in the request body.",
+      message: "代码评估器映射由 EvalBear 管理，不能在请求体中提供。",
       details: {
         field: "mapping",
       },

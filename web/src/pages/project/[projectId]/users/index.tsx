@@ -88,10 +88,9 @@ export default function UsersPage() {
         help: {
           description: (
             <>
-              Attribute data in EvalBear to a user by adding a userId to your
-              traces. See{" "}
+              通过向追踪添加 userId 将 EvalBear 中的数据归属到用户 traces. See{" "}
               <a
-                href="https://langfuse.com/docs/observability/features/users"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="decoration-primary/30 hover:decoration-primary underline"
@@ -102,7 +101,7 @@ export default function UsersPage() {
               to learn more.
             </>
           ),
-          href: "https://langfuse.com/docs/observability/features/users",
+          href: undefined,
         },
       }}
       scrollable={showOnboarding}
@@ -290,8 +289,8 @@ const UsersTable = ({ isBetaEnabled }: { isBetaEnabled: boolean }) => {
       header: "User ID",
       headerTooltip: {
         description:
-          "The unique identifier for the user that was logged in EvalBear. See docs for more details on how to set this up.",
-        href: "https://langfuse.com/docs/observability/features/users",
+          "在 EvalBear 中记录的用户唯一标识符。详见文档了解如何设置。",
+        href: undefined,
       },
       size: 150,
       cell: ({ row }) => {
@@ -363,7 +362,7 @@ const UsersTable = ({ isBetaEnabled }: { isBetaEnabled: boolean }) => {
       headerTooltip: {
         description:
           "Total number of events for the user, includes traces and observations. See data model for more details.",
-        href: "https://langfuse.com/docs/observability/data-model",
+        href: undefined,
       },
       size: 120,
       loadingCell: <TableTextLoadingCell />,
@@ -381,7 +380,7 @@ const UsersTable = ({ isBetaEnabled }: { isBetaEnabled: boolean }) => {
       headerTooltip: {
         description:
           "Total number of tokens used for the user across all generations.",
-        href: "https://langfuse.com/docs/model-usage-and-cost",
+        href: undefined,
       },
       size: 120,
       loadingCell: <TableTextLoadingCell />,
@@ -398,7 +397,7 @@ const UsersTable = ({ isBetaEnabled }: { isBetaEnabled: boolean }) => {
       header: "Total Cost",
       headerTooltip: {
         description: "Total cost for the user across all generations.",
-        href: "https://langfuse.com/docs/model-usage-and-cost",
+        href: undefined,
       },
       size: 120,
       loadingCell: <TableTextLoadingCell />,

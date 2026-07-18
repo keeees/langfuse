@@ -31,9 +31,8 @@ export function AuditLogsSettingsPage(props: { projectId: string }) {
     <>
       <Header title="Audit Logs" />
       <p className="text-muted-foreground mb-2 text-sm">
-        Track who changed what in your project and when. Monitor settings,
-        configurations, and data changes over time. Reach out to the EvalBear
-        team if you require more detailed/filtered audit logs.
+        追踪项目中谁在何时更改了什么。监控设置、配置和数据随时间的变化。
+        如需更详细/筛选的审计日志，请联系 EvalBear 团队。
       </p>
       {body}
     </>

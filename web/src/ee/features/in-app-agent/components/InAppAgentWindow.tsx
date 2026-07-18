@@ -267,11 +267,11 @@ export function InAppAgentWindow(props: InAppAgentWindowProps) {
                   <BotMessageSquare className="text-muted-foreground mx-auto h-8 w-8" />
                 </div>
                 <p className="text-muted-foreground mt-4 text-sm">
-                  Welcome to the EvalBear Assistant
+                  欢迎使用 EvalBear 助手
                 </p>
                 <p className="text-muted-foreground/60 mt-2 max-w-xs text-center text-sm leading-relaxed">
-                  I can help you with any questions you have about EvalBear or
-                  assist you in exploring your event data.
+                  我可以帮助您解答关于 EvalBear 或 assist you in exploring your
+                  event data.
                   <br />
                   Just ask me anything!
                 </p>
@@ -363,8 +363,8 @@ export function InAppAgentWindow(props: InAppAgentWindowProps) {
                 }
               }}
               disabled={isInputDisabled}
-              aria-label="Ask about EvalBear"
-              placeholder="Ask about EvalBear..."
+              aria-label="询问 EvalBear 相关问题"
+              placeholder="询问 EvalBear 相关问题..."
               rows={1}
               className={cn(
                 "bg-background placeholder:text-muted-foreground w-full flex-1 resize-none overflow-y-auto rounded-md text-sm leading-5 disabled:cursor-not-allowed disabled:opacity-60",

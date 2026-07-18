@@ -18,9 +18,8 @@ export function DeveloperToolsSettings() {
     <div>
       <Header title="MCP & CLI" />
       <p className="text-muted-foreground mb-6 text-sm">
-        Bring EvalBear into your terminal and AI coding agents. These tools let
-        you and your agents read and write EvalBear data—traces, prompts,
-        datasets, scores, and more—without leaving your development environment.
+        将 EvalBear 引入您的终端和 AI 编码代理。这些工具让您和您的代理读写
+        EvalBear 数据——追踪、提示词、数据集、评分等——无需离开开发环境。
       </p>
       <div className="space-y-6">
         <Card className="p-4">
@@ -29,11 +28,10 @@ export function DeveloperToolsSettings() {
             <span className="font-semibold">Agent Skill</span>
           </div>
           <p className="text-primary mb-4 text-sm">
-            The EvalBear Agent Skill is an open-source skill following
-            Anthropic&apos;s Agent Skills standard. It equips AI coding agents
-            (Claude Code, Cursor, Windsurf) with native EvalBear capabilities
-            and conditions them to follow best practices, so agents produce
-            better results when it is installed.
+            EvalBear Agent Skill 是一个遵循 Anthropic Agent Skills
+            标准的开源技能。 它为 AI 编码代理（Claude
+            Code、Cursor、Windsurf）提供原生 EvalBear 能力，
+            并引导代理遵循最佳实践，安装后代理能产出更好的结果。
           </p>
           <CodeBlock
             language="shell"
@@ -50,11 +48,10 @@ export function DeveloperToolsSettings() {
             <span className="font-semibold">MCP Server</span>
           </div>
           <p className="text-primary mb-4 text-sm">
-            The EvalBear MCP server lets AI assistants and agents interact with
-            your EvalBear data programmatically via the Model Context Protocol.
-            It supports both read and write operations, and you can restrict it
-            to read-only access with an allowlist. Authenticate with a
-            project-scoped API key pair.
+            EvalBear MCP 服务器让 AI
+            助手和代理通过模型上下文协议以编程方式与您的 EvalBear
+            数据交互。它支持读写操作，您可以通过允许列表将其限制为只读访问。
+            使用项目级 API 密钥对进行认证。
           </p>
           <CodeBlock
             language="shell"
@@ -73,10 +70,10 @@ export function DeveloperToolsSettings() {
             <span className="font-semibold">CLI</span>
           </div>
           <p className="text-primary mb-4 text-sm">
-            The EvalBear CLI provides terminal access to the full EvalBear API.
-            It wraps every API endpoint, so you can manage traces, prompts,
-            datasets, scores, and sessions directly from your shell or scripts.
-            It uses the same API key pair as the EvalBear SDKs.
+            EvalBear CLI 提供对完整 EvalBear API 的终端访问。它封装了所有 API
+            端点， 您可以直接从 shell
+            或脚本管理追踪、提示词、数据集、评分和会话。 它使用与 EvalBear SDK
+            相同的 API 密钥对。
           </p>
           <CodeBlock
             language="shell"

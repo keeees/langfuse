@@ -78,14 +78,12 @@ export const TracingSetup = ({
           status={hasTracingConfigured ? "active" : "pending"}
         />
         <p className="text-muted-foreground mb-4 text-sm">
-          EvalBear relies on OpenTelemetry to instrument your application and
-          export LLM application/agent traces to EvalBear. You can use one of
-          our SDKs or 50+ framework integrations. Please follow the quickstart
-          in the documentation to add EvalBear to your application.
+          EvalBear 依赖 OpenTelemetry 来检测您的应用并将 LLM 应用/代理追踪导出到
+          EvalBear。您可以使用我们的 SDK 或 50
+          多个框架集成之一。请按照文档中的快速入门指南将 EvalBear
+          添加到您的应用中。
         </p>
-        <ActionButton href="https://langfuse.com/docs/observability/get-started">
-          Quickstart guide
-        </ActionButton>
+        <ActionButton href="#">Quickstart guide</ActionButton>
       </div>
     </div>
   );
@@ -129,8 +127,8 @@ export default function TracesSetupPage() {
         title: "Tracing Setup",
         help: {
           description:
-            "Setup tracing to track and analyze your LLM calls. You can create API keys and integrate EvalBear with your application.",
-          href: "https://langfuse.com/docs/observability/overview",
+            "设置追踪以跟踪和分析您的 LLM 调用。您可以创建 API 密钥并将 EvalBear 集成到您的应用中。",
+          href: undefined,
         },
       }}
     >

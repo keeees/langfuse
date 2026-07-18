@@ -287,7 +287,7 @@ export function EvaluatorSelector({
 
         {filteredTemplates.langfuse.length > 0 && (
           <>
-            <InputCommandGroup heading="EvalBear managed evaluators">
+            <InputCommandGroup heading="EvalBear 托管评估器">
               {filteredTemplates.langfuse.map(([name, templateData]) => {
                 const latestVersion = templateData[templateData.length - 1];
                 const isInvalid = isTemplateInvalid(latestVersion);

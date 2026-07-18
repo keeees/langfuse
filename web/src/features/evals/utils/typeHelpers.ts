@@ -17,7 +17,7 @@ export const getMaintainer = (evalTemplate: {
     if (evalTemplate.partner) {
       return `${getPartnerName(evalTemplate.partner)} maintained`;
     }
-    return "EvalBear maintained";
+    return "EvalBear 维护";
   }
   return "User maintained";
 };

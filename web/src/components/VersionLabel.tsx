@@ -90,7 +90,6 @@ export const VersionLabel = ({ className }: { className?: string }) => {
           className={cn("mt-[0.2px] text-[0.625rem]", className)}
         >
           {VERSION}
-          {selfHostedPlanLabel ? <> {selfHostedPlanLabel.short}</> : null}
           {showBackgroundMigrationStatus && (
             <StatusBadge
               type={backgroundMigrationStatus.data?.status.toLowerCase()}

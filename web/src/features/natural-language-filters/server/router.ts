@@ -86,7 +86,7 @@ export const naturalLanguageFilterRouter = createTRPCRouter({
           throw new TRPCError({
             code: "PRECONDITION_FAILED",
             message:
-              "EvalBear AI filters environment variables not configured. Please set LANGFUSE_AI_FEATURES_PUBLIC_KEY and LANGFUSE_AI_FEATURES_SECRET_KEY variables.",
+              "EvalBear AI 筛选器环境变量未配置。请设置 LANGFUSE_AI_FEATURES_PUBLIC_KEY 和 LANGFUSE_AI_FEATURES_SECRET_KEY 变量。",
           });
         }
 
@@ -111,7 +111,7 @@ export const naturalLanguageFilterRouter = createTRPCRouter({
         if (aiTelemetryEnabled && !targetProjectId) {
           throw new TRPCError({
             code: "INTERNAL_SERVER_ERROR",
-            message: "EvalBear AI Features not configured.",
+            message: "EvalBear AI 功能未配置。",
           });
         }
 

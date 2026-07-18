@@ -291,7 +291,7 @@ export const TemplateSelector = ({
 
                 {filteredTemplates.langfuse.length > 0 && (
                   <InputCommandGroup
-                    heading="EvalBear managed evaluators"
+                    heading="EvalBear 托管评估器"
                     className="max-h-full min-h-0"
                   >
                     {filteredTemplates.langfuse.map(([name, templateData]) => {

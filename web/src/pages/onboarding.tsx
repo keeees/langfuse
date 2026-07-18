@@ -7,7 +7,7 @@ export default function OnboardingPage() {
   return (
     <>
       <Head>
-        <title>Onboarding | EvalBear</title>
+        <title>引导 | EvalBear</title>
       </Head>
       <OnboardingSurvey />
     </>

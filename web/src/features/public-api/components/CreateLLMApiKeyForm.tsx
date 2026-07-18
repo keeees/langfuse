@@ -709,8 +709,7 @@ export function CreateLLMApiKeyForm({
               <FormItem>
                 <FormLabel>Provider name</FormLabel>
                 <FormDescription>
-                  Key to identify the connection within EvalBear. Cannot contain
-                  colons.
+                  在 EvalBear 中标识连接的密钥。不能包含 colons.
                 </FormDescription>
                 <FormControl>
                   <Input
@@ -734,7 +733,7 @@ export function CreateLLMApiKeyForm({
                   <FormItem>
                     <FormLabel>Authentication Method</FormLabel>
                     <FormDescription>
-                      Select how EvalBear should authenticate to Bedrock.
+                      选择 EvalBear 对 Bedrock 的认证方式。
                     </FormDescription>
                     <FormControl>
                       <Tabs
@@ -1282,8 +1281,8 @@ export function CreateLLMApiKeyForm({
                       <span className="flex-1">
                         <FormLabel>Enable default models</FormLabel>
                         <FormDescription>
-                          Default models for the selected adapter will be
-                          available in EvalBear features.
+                          Default models for the selected adapter will be 在
+                          EvalBear 功能中可用。
                         </FormDescription>
                       </span>
 

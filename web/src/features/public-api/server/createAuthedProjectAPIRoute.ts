@@ -171,7 +171,7 @@ async function verifyAdminApiKeyAuth(req: NextApiRequest): Promise<
   if (env.NEXT_PUBLIC_LANGFUSE_CLOUD_REGION) {
     throw {
       status: 403,
-      message: "Admin API key auth is not available on EvalBear Cloud",
+      message: "管理员 API 密钥认证在 EvalBear Cloud 上不可用",
     };
   }
 

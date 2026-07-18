@@ -44,7 +44,7 @@ export default function SSOInitiate() {
     return (
       <>
         <Head>
-          <title>Sign-in Error | EvalBear</title>
+          <title>登录错误 | EvalBear</title>
         </Head>
         <ErrorPageWithSentry title="SSO Sign-in Failed" message={error} />
       </>
@@ -55,7 +55,7 @@ export default function SSOInitiate() {
   return (
     <>
       <Head>
-        <title>Signing in | EvalBear</title>
+        <title>正在登录 | EvalBear</title>
       </Head>
       <Spinner message="Redirecting to your identity provider..." />
     </>

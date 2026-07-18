@@ -67,7 +67,7 @@ export function AuditLogsTable(props: AuditLogsTableProps) {
       accessorKey: "actor",
       header: "Actor",
       headerTooltip: {
-        description: "The actor within EvalBear who performed the action.",
+        description: "在 EvalBear 中执行操作的角色。",
       },
       cell: (row) => {
         const actor = row.getValue() as AuditLogRow["actor"];

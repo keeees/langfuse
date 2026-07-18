@@ -91,7 +91,7 @@ export function SelectEvaluatorList({ projectId }: SelectEvaluatorListProps) {
                 <span className="flex flex-col gap-1">
                   <span className="font-medium">Code evaluator</span>
                   <span className="text-muted-foreground text-sm font-normal">
-                    Use code to create EvalBear scores.
+                    使用代码创建 EvalBear 评分。
                   </span>
                 </span>
               </Button>

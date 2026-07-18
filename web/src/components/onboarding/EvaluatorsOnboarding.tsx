@@ -63,7 +63,7 @@ export function EvaluatorsOnboarding({ projectId }: EvaluatorsOnboardingProps) {
     return (
       <SplashScreen
         title="Get started with evaluations"
-        description="Use evaluators to score traces and observations automatically. EvalBear supports two evaluator types:"
+        description="使用评估器自动对追踪和观察进行评分。EvalBear 支持两种评估器类型："
         valuePropositions={evaluatorTypes}
         primaryAction={{
           label: "Create Evaluator",

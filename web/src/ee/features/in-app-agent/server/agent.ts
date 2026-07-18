@@ -13,12 +13,12 @@ import type { InAppAgentTracingConfig } from "@/src/ee/features/in-app-agent/ser
 import { createInAppAgentInstrumentation } from "@/src/ee/features/in-app-agent/server/instrumentation";
 import { logger } from "@langfuse/shared/src/server";
 
-const ASSISTANT_TITLE = "EvalBear Assistant";
+const ASSISTANT_TITLE = "EvalBear 助手";
 const getAssistantSystemPrompt = (
   context: AgUiRunAgentInput["context"] = [],
 ) => `
 <identity>
-  You are an assistant called EvalBear Assistant.
+  You are an assistant called EvalBear 助手.
   Your role is to assist users with tasks in the EvalBear Cloud product.
 </identity>
 
@@ -515,11 +515,11 @@ async function createMastraAdapter(params: {
     const { toolsets, errors } = await mcpClient.listToolsetsWithErrors();
 
     if (errors.langfuse) {
-      throw new Error(`Failed to initialize EvalBear MCP: ${errors.langfuse}`);
+      throw new Error(`初始化 EvalBear MCP 失败: ${errors.langfuse}`);
     }
 
     if (errors.langfuseDocs) {
-      logger.warn("Failed to initialize EvalBear docs MCP", {
+      logger.warn("初始化 EvalBear 文档 MCP 失败", {
         error: errors.langfuseDocs,
         runId: params.input.runId,
         threadId: params.input.threadId,

@@ -124,7 +124,7 @@ export function TracePage({
         asChild
         size="sm"
         variant="outline"
-        title="Back to EvalBear"
+        title="返回 EvalBear"
         className="px-3"
       >
         <Link href="/">EvalBear</Link>
@@ -134,7 +134,7 @@ export function TracePage({
         asChild
         size="sm"
         variant="default"
-        title="Sign in to EvalBear"
+        title="登录 EvalBear"
         className="px-3"
       >
         <Link href={`/auth/sign-in?targetPath=${encodedTargetPath}`}>

@@ -25,12 +25,11 @@ import { TRPCError } from "@trpc/server";
 export const createStripeClientReference = (orgId: string) => {
   if (!env.NEXT_PUBLIC_LANGFUSE_CLOUD_REGION) {
     logger.error(
-      "Returning null stripeClientReference, you cannot run the checkout page outside of EvalBear Cloud",
+      "返回 null stripeClientReference，您不能在 EvalBear Cloud 之外运行结账页面",
     );
     throw new TRPCError({
       code: "INTERNAL_SERVER_ERROR",
-      message:
-        "Cannot create stripe client reference outside of EvalBear Cloud",
+      message: "无法在 EvalBear Cloud 之外创建 stripe 客户端引用",
     });
   }
   return `${env.NEXT_PUBLIC_LANGFUSE_CLOUD_REGION}-${orgId}`;

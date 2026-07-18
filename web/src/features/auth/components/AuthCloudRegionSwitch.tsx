@@ -119,7 +119,7 @@ const DataRegionInfo = () => (
       </DialogHeader>
       <DialogBody>
         <DialogDescription className="flex flex-col gap-2">
-          <p>EvalBear Cloud is available in four data regions:</p>
+          <p>EvalBear Cloud 在四个数据区域可用：</p>
           <ul className="list-disc pl-5">
             <li>US: Oregon (AWS us-west-2)</li>
             <li>EU: Ireland (AWS eu-west-1)</li>

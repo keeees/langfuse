@@ -421,9 +421,7 @@ export default function DashboardDetail() {
         headerProps={{
           title:
             (dashboard.data?.name || "Dashboard") +
-            (dashboard.data?.owner === "LANGFUSE"
-              ? " (EvalBear Maintained)"
-              : ""),
+            (dashboard.data?.owner === "LANGFUSE" ? " (EvalBear 维护)" : ""),
           breadcrumb: [
             {
               name: "Dashboards",

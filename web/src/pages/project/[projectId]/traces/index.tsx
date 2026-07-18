@@ -44,9 +44,7 @@ export default function Traces() {
         headerProps={{
           title: "追踪",
           help: {
-            description:
-              "A trace represents a single function/api invocation. Traces contain observations. See [docs](https://langfuse.com/docs/observability/data-model) to learn more.",
-            href: "https://langfuse.com/docs/observability/data-model",
+            description: "追踪代表一次函数/API 调用。追踪包含观察记录。",
           },
         }}
         scrollable
@@ -61,23 +59,8 @@ export default function Traces() {
       headerProps={{
         title: "追踪",
         help: {
-          description: (
-            <>
-              A trace represents a single function/api invocation. Traces
-              contain observations. See{" "}
-              <a
-                href="https://langfuse.com/docs/observability/data-model"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="decoration-primary/30 hover:decoration-primary underline"
-                onClick={(e) => e.stopPropagation()}
-              >
-                docs
-              </a>{" "}
-              to learn more.
-            </>
-          ),
-          href: "https://langfuse.com/docs/observability/data-model",
+          description:
+            "追踪代表一次函数/API 调用。追踪包含观察记录，可用于分析 LLM 应用的执行流程。",
         },
         tabsProps:
           isBetaEnabled || isInitializing

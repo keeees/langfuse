@@ -10,7 +10,12 @@ import { cn } from "@/src/utils/tailwind";
 import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import { Separator } from "@/src/components/ui/separator";
-import { Sheet, SheetContent } from "@/src/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+} from "@/src/components/ui/sheet";
 import { Skeleton } from "@/src/components/ui/skeleton";
 import {
   Tooltip,
@@ -217,6 +222,8 @@ const Sidebar = React.forwardRef<
             }
             side={side}
           >
+            <SheetTitle className="sr-only">导航侧边栏</SheetTitle>
+            <SheetDescription className="sr-only">主导航菜单</SheetDescription>
             <div className="flex h-full w-full flex-col">{children}</div>
           </SheetContent>
         </Sheet>

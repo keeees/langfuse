@@ -390,10 +390,10 @@ export const UpsertModelFormDialog = (({
                       </SelectContent>
                     </Select>
                     <FormDescription>
-                      Optionally, EvalBear can tokenize the input and output of
-                      a generation if no unit counts are ingested. This is
-                      useful for e.g. streamed OpenAI completions. For details
-                      on the supported tokenizers, see the{" "}
+                      可选地，EvalBear 可以对输入和输出进行分词 a generation if
+                      no unit counts are ingested. This is useful for e.g.
+                      streamed OpenAI completions. For details on the supported
+                      tokenizers, see the{" "}
                       <Link
                         href="https://langfuse.com/docs/model-usage-and-cost"
                         className="underline"

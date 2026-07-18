@@ -95,7 +95,7 @@ export const DEFAULT_PYTHON_CODE_EVAL_SOURCE = `${PYTHON_CODE_EVAL_CONTRACT}
 
 
 def evaluate(ctx: EvaluationContext) -> EvaluationResult:
-    """Evaluates one observation and returns one or more EvalBear scores."""
+    """评估一个观察并返回一个或多个 EvalBear 评分。"""
     input = ctx.observation.input
     matches_output = input is not None and ctx.observation.output == input
 

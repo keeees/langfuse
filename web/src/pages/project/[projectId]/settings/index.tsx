@@ -297,7 +297,7 @@ const Integrations = (props: { projectId: string }) => {
           <PostHogLogo className="text-foreground mb-4 w-40" />
           <p className="text-primary mb-4 text-sm">
             We have teamed up with PostHog (OSS product analytics) to make
-            EvalBear Events/Metrics available in your Posthog Dashboards.
+            EvalBear 事件/指标在您的 Posthog 仪表板中可用。
           </p>
           <div className="flex items-center gap-2">
             <ActionButton
@@ -321,8 +321,8 @@ const Integrations = (props: { projectId: string }) => {
         <Card className="p-3">
           <MixpanelLogo className="text-foreground mb-4 w-20" />
           <p className="text-primary mb-4 text-sm">
-            Integrate with Mixpanel to sync your EvalBear traces, generations,
-            and scores for advanced product analytics and insights.
+            与 Mixpanel 集成以同步您的 EvalBear 追踪、生成记录、 and scores for
+            advanced product analytics and insights.
           </p>
           <div className="flex items-center gap-2">
             <ActionButton
@@ -377,7 +377,7 @@ const Integrations = (props: { projectId: string }) => {
           </div>
           <p className="text-primary mb-4 text-sm">
             Connect a Slack workspace and create channel automations to receive
-            EvalBear alerts natively in Slack.
+            EvalBear 原生 Slack 警报。
           </p>
           <div className="flex items-center gap-2">
             <ActionButton

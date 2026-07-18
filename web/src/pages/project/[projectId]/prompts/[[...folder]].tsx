@@ -85,8 +85,8 @@ export default function PromptsWithFolder() {
         title: "提示词",
         help: {
           description:
-            "Manage and version your prompts in EvalBear. Edit and update them via the UI and SDK. Retrieve the production version via the SDKs. Learn more in the docs.",
-          href: "https://langfuse.com/docs/prompt-management/get-started",
+            "在 EvalBear 中管理和版本控制您的提示词。通过 UI 和 SDK 进行编辑和更新。通过 SDK 获取生产版本。详见文档了解更多。",
+          href: undefined,
         },
         actionButtonsRight: (
           <>

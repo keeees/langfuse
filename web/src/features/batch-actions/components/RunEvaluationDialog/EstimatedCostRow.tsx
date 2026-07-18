@@ -77,8 +77,8 @@ export function EstimatedCostRow(props: EstimatedCostRowProps) {
             </TooltipTrigger>
             <TooltipContent className="max-w-xs space-y-2 p-3">
               <p className="text-xs">
-                Expected cost on your linked API key (not EvalBear). Estimated
-                from average evaluator execution cost over the last 7 days.
+                您关联的 API 密钥的预期费用（非 EvalBear）。根据过去 7
+                天的平均评估器执行费用估算。
               </p>
               <div className="space-y-1">
                 {evaluators.map(({ id, name }) => {

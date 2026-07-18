@@ -120,7 +120,7 @@ export const CreateExperimentsForm = ({
                   via User Interface
                 </CardTitle>
                 <CardDescription>
-                  Test single prompts and model configurations via EvalBear UI.
+                  通过 EvalBear UI 测试单个提示词和模型配置。
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -159,8 +159,8 @@ export const CreateExperimentsForm = ({
                   via SDK / API
                 </CardTitle>
                 <CardDescription>
-                  Start any dataset run via the EvalBear SDKs. To configure runs
-                  via webhook, use the button below.
+                  通过 EvalBear SDK 启动任何数据集运行。要配置运行 via webhook,
+                  use the button below.
                 </CardDescription>
               </CardHeader>
               <CardContent>

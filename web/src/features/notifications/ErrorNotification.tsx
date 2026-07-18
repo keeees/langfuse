@@ -70,7 +70,7 @@ export const ErrorNotification: React.FC<ErrorNotificationProps> = ({
               setOpen(true);
             }}
           >
-            Report issue to EvalBear team
+            向 EvalBear 团队报告问题
           </Button>
         )}
       </div>

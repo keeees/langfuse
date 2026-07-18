@@ -8,7 +8,13 @@ import { type DialogProps } from "@radix-ui/react-dialog";
 import { Command as CommandPrimitive } from "cmdk";
 import { Search } from "lucide-react";
 
-import { Dialog, DialogBody, DialogContent } from "@/src/components/ui/dialog";
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "@/src/components/ui/dialog";
 import {
   KeyboardShortcut,
   type KeyboardShortcutProps,
@@ -30,15 +36,26 @@ const InputCommand = React.forwardRef<
 ));
 InputCommand.displayName = CommandPrimitive.displayName;
 
-interface InputCommandDialogProps extends DialogProps {}
+interface InputCommandDialogProps extends DialogProps {
+  /** Accessible name for the command dialog (screen-reader only by default). */
+  title?: string;
+  /** Accessible description for the command dialog (screen-reader only). */
+  description?: string;
+}
 
 const InputCommandDialog = ({
   children,
+  title = "Command menu",
+  description = "Search for and run a command.",
   ...props
 }: InputCommandDialogProps) => {
   return (
     <Dialog {...props}>
       <DialogContent className="overflow-hidden p-0 shadow-lg">
+        {/* Radix requires every DialogContent to expose an accessible name and
+            description; render them screen-reader-only for the command menu. */}
+        <DialogTitle className="sr-only">{title}</DialogTitle>
+        <DialogDescription className="sr-only">{description}</DialogDescription>
         <DialogBody>
           <InputCommand className="[&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-slate-500 dark:**:[[cmdk-group-heading]]:text-slate-400 **:[[cmdk-group]]:px-2 **:[[cmdk-input]]:h-12 **:[[cmdk-item]]:px-2 **:[[cmdk-item]]:py-3">
             {children}

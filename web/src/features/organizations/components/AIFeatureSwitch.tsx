@@ -121,11 +121,10 @@ export default function AIFeatureSwitch() {
               Enable AI powered features for your organization
             </h4>
             <p className="text-sm">
-              This setting applies to all users and projects. Any data{" "}
-              <i>can</i> be sent to AWS Bedrock within the EvalBear data region.
-              Traces are sent to EvalBear Cloud in your data region. Your data
-              will not be used for training models. Applicable HIPAA, SOC2,
-              GDPR, and ISO 27001 compliance remains intact.{" "}
+              此设置适用于所有用户和项目。任何数据 <i>可能</i> 被发送到 EvalBear
+              数据区域内的 AWS Bedrock。 追踪数据发送到您所在数据区域的 EvalBear
+              Cloud。您的数据不会被用于训练模型。 适用的 HIPAA、SOC2、GDPR 和
+              ISO 27001 合规性保持不变。{" "}
               <a
                 href="https://langfuse.com/security/ai-features"
                 target="_blank"
@@ -157,8 +156,7 @@ export default function AIFeatureSwitch() {
                 AI Data Use for Product/Service Improvement
               </h4>
               <p className="text-sm">
-                Share data about your use of AI with EvalBear for product and
-                service improvement.
+                与 EvalBear 共享您使用 AI 的数据，用于产品和服务改进。
               </p>
             </div>
             <div className="relative">

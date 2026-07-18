@@ -623,7 +623,7 @@ export default function EvalsTemplateTable({
             <DialogTitle>Update running evaluators?</DialogTitle>
             <DialogDescription>
               Do you want all running evaluators attached to the original
-              EvalBear evaluator to reference your new project-level version?
+              EvalBear 评估器以引用您新的项目级版本？
               <br />
               <br />
               <strong>Warning:</strong> This might break workflows if you have

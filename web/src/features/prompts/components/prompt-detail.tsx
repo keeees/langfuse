@@ -41,6 +41,7 @@ import { usePostHogClientCapture } from "@/src/features/posthog-analytics/usePos
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
   DialogTrigger,
 } from "@/src/components/ui/dialog";
 import { CreateExperimentsForm } from "@/src/features/experiments/components/CreateExperimentsForm";
@@ -280,7 +281,7 @@ export const PromptDetail = ({
         itemType: "PROMPT",
         help: {
           description:
-            "You can use this prompt within your application through the EvalBear SDKs and integrations. Refer to the documentation for more information.",
+            "您可以通过 EvalBear SDK 和集成在应用中使用此提示词。详情请参阅文档。",
           href: "https://langfuse.com/docs/prompts",
         },
         breadcrumb: [
@@ -423,6 +424,9 @@ export const PromptDetail = ({
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto">
+                      <DialogTitle className="sr-only">
+                        Create experiment
+                      </DialogTitle>
                       <CreateExperimentsForm
                         key={`create-experiment-form-${prompt.id}`}
                         projectId={projectId as string}

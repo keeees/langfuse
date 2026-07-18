@@ -1,7 +1,7 @@
 import Page from "@/src/components/layouts/page";
 import { Badge } from "@/src/components/ui/badge";
 import { Button } from "@/src/components/ui/button";
-import { Input } from "@/src/components/ui/input";
+import { env } from "@/src/env.mjs";
 import {
   Table,
   TableBody,
@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "@/src/components/ui/table";
 import { cn } from "@/src/utils/tailwind";
-import { ExternalLink, Play, RefreshCw } from "lucide-react";
+import { ExternalLink, RefreshCw } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -43,9 +43,14 @@ type RunDetail = RunRecord & {
   artifacts?: unknown[];
 };
 
-async function fetchEvalBear<T>(path: string, init?: RequestInit): Promise<T> {
-  // TODO(evalbear-rename): coordinate with eval_service_web/ to rename mount to /api/evalbear/eval/
-  const response = await fetch(`/api/redbear/eval/${path}`, {
+async function fetchEvalBear<T>(
+  path: string,
+  projectId: string,
+  init?: RequestInit,
+): Promise<T> {
+  const separator = path.includes("?") ? "&" : "?";
+  const url = `/api/redbear/eval/${path}${separator}projectId=${encodeURIComponent(projectId)}`;
+  const response = await fetch(url, {
     ...init,
     headers: {
       "Content-Type": "application/json",
@@ -59,7 +64,7 @@ async function fetchEvalBear<T>(path: string, init?: RequestInit): Promise<T> {
         ? payload.detail
         : typeof payload?.error === "string"
           ? payload.error
-          : `EvalBear Eval API returned ${response.status}`;
+          : `EvalBear Eval API 返回状态码 ${response.status}`;
     throw new Error(message);
   }
   return payload as T;
@@ -86,6 +91,16 @@ function getTraceId(trial: TrialRecord): string | null {
   return null;
 }
 
+function getEvalWebUrl(projectId?: string): string {
+  const baseUrl = (
+    env.NEXT_PUBLIC_EVAL_WEB_URL ?? "http://localhost:3001"
+  ).replace(/\/+$/, "");
+  const params = new URLSearchParams();
+  if (projectId) params.set("projectId", projectId);
+  const query = params.toString();
+  return `${baseUrl}/${query ? `?${query}` : ""}`;
+}
+
 export default function EvalBearEvalPage() {
   const router = useRouter();
   const projectId = router.query.projectId as string | undefined;
@@ -94,32 +109,31 @@ export default function EvalBearEvalPage() {
   const [selectedRunId, setSelectedRunId] = useState<string | null>(null);
   const [selectedRun, setSelectedRun] = useState<RunDetail | null>(null);
   const [trials, setTrials] = useState<TrialRecord[]>([]);
-  const [benchmark, setBenchmark] = useState("longmemeval");
-  const [limit, setLimit] = useState("1");
-  const [startIndex, setStartIndex] = useState("0");
-  const [noLlmJudge, setNoLlmJudge] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [isCreating, setIsCreating] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const refreshRuns = useCallback(async () => {
+    if (!projectId) return;
     setIsLoading(true);
     setError(null);
     try {
-      const data = await fetchEvalBear<{ runs: RunRecord[] }>("runs");
+      const data = await fetchEvalBear<{ runs: RunRecord[] }>(
+        "runs",
+        projectId,
+      );
       setRuns(data.runs ?? []);
       if (!selectedRunId && data.runs?.[0]?.run_id) {
         setSelectedRunId(data.runs[0].run_id);
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load runs");
+      setError(err instanceof Error ? err.message : "加载运行列表失败");
     } finally {
       setIsLoading(false);
     }
-  }, [selectedRunId]);
+  }, [projectId, selectedRunId]);
 
   const refreshSelectedRun = useCallback(async () => {
-    if (!selectedRunId) {
+    if (!selectedRunId || !projectId) {
       setSelectedRun(null);
       setTrials([]);
       return;
@@ -128,17 +142,21 @@ export default function EvalBearEvalPage() {
     setError(null);
     try {
       const [run, trialData] = await Promise.all([
-        fetchEvalBear<RunDetail>(`runs/${encodeURIComponent(selectedRunId)}`),
+        fetchEvalBear<RunDetail>(
+          `runs/${encodeURIComponent(selectedRunId)}`,
+          projectId,
+        ),
         fetchEvalBear<{ trials: TrialRecord[] }>(
           `runs/${encodeURIComponent(selectedRunId)}/trials?limit=200`,
+          projectId,
         ),
       ]);
       setSelectedRun(run);
       setTrials(trialData.trials ?? []);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load run");
+      setError(err instanceof Error ? err.message : "加载运行详情失败");
     }
-  }, [selectedRunId]);
+  }, [projectId, selectedRunId]);
 
   useEffect(() => {
     refreshRuns();
@@ -165,51 +183,13 @@ export default function EvalBearEvalPage() {
     return JSON.stringify(selectedRun.summary, null, 2);
   }, [selectedRun]);
 
-  async function createMemoryRun() {
-    const parsedLimit = Number.parseInt(limit, 10);
-    const parsedStartIndex = Number.parseInt(startIndex, 10);
-    if (!Number.isInteger(parsedLimit) || parsedLimit < 1) {
-      setError("Limit must be a positive integer.");
-      return;
-    }
-    if (!Number.isInteger(parsedStartIndex) || parsedStartIndex < 0) {
-      setError("Start index must be zero or greater.");
-      return;
-    }
-
-    setIsCreating(true);
-    setError(null);
-    try {
-      const created = await fetchEvalBear<{ run_id: string }>("runs", {
-        method: "POST",
-        body: JSON.stringify({
-          runner_id: "memory_eval",
-          config: {
-            benchmark,
-            limit: parsedLimit,
-            start_index: parsedStartIndex,
-            no_llm_judge: noLlmJudge,
-          },
-        }),
-      });
-      const data = await fetchEvalBear<{ runs: RunRecord[] }>("runs");
-      setRuns(data.runs ?? []);
-      setSelectedRunId(created.run_id);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to create run");
-    } finally {
-      setIsCreating(false);
-    }
-  }
-
   return (
     <Page
       headerProps={{
-        title: "EvalBear Eval",
+        title: "EvalBear 评测",
         help: {
           description:
-            "Run EvalBear memory evaluations through eval-service and inspect linked Langfuse traces from one project page.",
-          href: "https://langfuse.com/docs/evaluation/overview",
+            "通过 eval-service 运行 EvalBear 记忆评测，并查看关联的追踪记录。",
         },
         actionButtonsRight: (
           <Button
@@ -236,69 +216,54 @@ export default function EvalBearEvalPage() {
         ) : null}
 
         <section className="bg-background rounded-md border p-4">
-          <div className="mb-3 flex items-center justify-between gap-3">
-            <div>
-              <h2 className="text-base font-semibold">Create memory eval</h2>
-              <p className="text-muted-foreground text-sm">
-                Starts a EvalBear memory_eval run in eval-service. Secrets and
-                MemoryBear endpoints are read from eval-service environment.
+          <h2 className="mb-3 text-base font-semibold">评测中心</h2>
+          <p className="text-muted-foreground mb-4 text-sm">
+            创建和管理评测运行。关联到此项目的结果将显示在下方。
+          </p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <a
+              href={`/project/${projectId}/evalbear-eval/agent`}
+              className="border-border bg-card hover:border-accent rounded-md border p-3 hover:shadow-sm"
+            >
+              <h3 className="text-sm font-medium">Agent 评测</h3>
+              <p className="text-muted-foreground mt-1 text-xs">
+                任务成功率、工具调用过程、trace drill-down。
               </p>
-            </div>
-            <Button onClick={createMemoryRun} loading={isCreating}>
-              <Play className="h-4 w-4" />
-              <span className="ml-2">Run</span>
-            </Button>
-          </div>
-
-          <div className="grid gap-3 md:grid-cols-4">
-            <label className="flex flex-col gap-1 text-sm">
-              <span className="font-medium">Benchmark</span>
-              <select
-                value={benchmark}
-                onChange={(event) => setBenchmark(event.target.value)}
-                className="border-input bg-background h-8 rounded-md border px-2 text-sm"
-              >
-                <option value="longmemeval">longmemeval</option>
-                <option value="locomo">locomo</option>
-                <option value="memsciqa">memsciqa</option>
-              </select>
-            </label>
-            <label className="flex flex-col gap-1 text-sm">
-              <span className="font-medium">Limit</span>
-              <Input value={limit} onChange={(e) => setLimit(e.target.value)} />
-            </label>
-            <label className="flex flex-col gap-1 text-sm">
-              <span className="font-medium">Start index</span>
-              <Input
-                value={startIndex}
-                onChange={(e) => setStartIndex(e.target.value)}
-              />
-            </label>
-            <label className="flex items-end gap-2 text-sm">
-              <input
-                type="checkbox"
-                checked={noLlmJudge}
-                onChange={(event) => setNoLlmJudge(event.target.checked)}
-                className="mb-2"
-              />
-              <span className="pb-1">Skip LLM judge</span>
-            </label>
+            </a>
+            <a
+              href={`/project/${projectId}/evalbear-eval/memory`}
+              className="border-border bg-card hover:border-accent rounded-md border p-3 hover:shadow-sm"
+            >
+              <h3 className="text-sm font-medium">记忆评测</h3>
+              <p className="text-muted-foreground mt-1 text-xs">
+                记忆写入和召回准确性。
+              </p>
+            </a>
+            <a
+              href={`/project/${projectId}/evalbear-eval/rag`}
+              className="border-border bg-card hover:border-accent rounded-md border p-3 hover:shadow-sm"
+            >
+              <h3 className="text-sm font-medium">RAG 评测</h3>
+              <p className="text-muted-foreground mt-1 text-xs">
+                知识库检索和回答质量。
+              </p>
+            </a>
           </div>
         </section>
 
         <section className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <div className="bg-background rounded-md border">
             <div className="border-b px-4 py-3">
-              <h2 className="text-base font-semibold">Runs</h2>
+              <h2 className="text-base font-semibold">运行列表</h2>
             </div>
             <div className="overflow-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Run</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Kind</TableHead>
-                    <TableHead>Created</TableHead>
+                    <TableHead>运行</TableHead>
+                    <TableHead>状态</TableHead>
+                    <TableHead>类型</TableHead>
+                    <TableHead>创建时间</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -329,7 +294,7 @@ export default function EvalBearEvalPage() {
                         colSpan={4}
                         className="text-muted-foreground h-20 text-center"
                       >
-                        No EvalBear eval runs yet.
+                        暂无 EvalBear 评测运行记录。
                       </TableCell>
                     </TableRow>
                   ) : null}
@@ -340,19 +305,19 @@ export default function EvalBearEvalPage() {
 
           <div className="bg-background rounded-md border">
             <div className="border-b px-4 py-3">
-              <h2 className="text-base font-semibold">Run detail</h2>
+              <h2 className="text-base font-semibold">运行详情</h2>
             </div>
             {selectedRun ? (
               <div className="flex flex-col gap-3 p-4">
                 <div className="grid gap-2 text-sm md:grid-cols-2">
                   <div>
-                    <span className="text-muted-foreground">Run ID</span>
+                    <span className="text-muted-foreground">运行 ID</span>
                     <div className="truncate font-mono">
                       {selectedRun.run_id}
                     </div>
                   </div>
                   <div>
-                    <span className="text-muted-foreground">Status</span>
+                    <span className="text-muted-foreground">状态</span>
                     <div>
                       <Badge variant={statusVariant(selectedRun.status)}>
                         {selectedRun.status}
@@ -360,23 +325,60 @@ export default function EvalBearEvalPage() {
                     </div>
                   </div>
                   <div>
-                    <span className="text-muted-foreground">Updated</span>
+                    <span className="text-muted-foreground">更新时间</span>
                     <div>{formatTime(selectedRun.updated_at)}</div>
                   </div>
                   <div>
-                    <span className="text-muted-foreground">Error</span>
+                    <span className="text-muted-foreground">错误</span>
                     <div className="text-destructive truncate">
                       {selectedRun.error ?? "-"}
                     </div>
                   </div>
+                  <div>
+                    <span className="text-muted-foreground">类型</span>
+                    <div>{selectedRun.kind ?? "-"}</div>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">总样本数</span>
+                    <div>
+                      {String(
+                        selectedRun.summary?.total_cases ??
+                          selectedRun.summary?.total ??
+                          "-",
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">通过率</span>
+                    <div>
+                      {selectedRun.summary?.pass_rate != null
+                        ? `${(Number(selectedRun.summary.pass_rate) * 100).toFixed(1)}%`
+                        : "-"}
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">失败数</span>
+                    <div>
+                      {String(
+                        selectedRun.summary?.failed ??
+                          selectedRun.summary?.errors ??
+                          "-",
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <pre className="bg-muted max-h-56 overflow-auto rounded-md p-3 text-xs">
-                  {summaryText}
-                </pre>
+                <details className="mt-3">
+                  <summary className="text-muted-foreground hover:text-foreground cursor-pointer text-xs">
+                    查看原始结果
+                  </summary>
+                  <pre className="bg-muted mt-2 max-h-56 overflow-auto rounded-md p-3 text-xs">
+                    {summaryText}
+                  </pre>
+                </details>
               </div>
             ) : (
               <div className="text-muted-foreground p-4 text-sm">
-                Select a run to inspect details.
+                选择一个运行以查看详情。
               </div>
             )}
           </div>
@@ -384,18 +386,18 @@ export default function EvalBearEvalPage() {
 
         <section className="bg-background rounded-md border">
           <div className="border-b px-4 py-3">
-            <h2 className="text-base font-semibold">Trials</h2>
+            <h2 className="text-base font-semibold">试验列表</h2>
           </div>
           <div className="overflow-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Case</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Passed</TableHead>
-                  <TableHead>Score</TableHead>
-                  <TableHead>Trace</TableHead>
-                  <TableHead>Error</TableHead>
+                  <TableHead>用例</TableHead>
+                  <TableHead>状态</TableHead>
+                  <TableHead>通过</TableHead>
+                  <TableHead>评分</TableHead>
+                  <TableHead>追踪</TableHead>
+                  <TableHead>错误</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -411,8 +413,8 @@ export default function EvalBearEvalPage() {
                         {trial.passed === null || trial.passed === undefined
                           ? "-"
                           : trial.passed
-                            ? "PASS"
-                            : "FAIL"}
+                            ? "通过"
+                            : "未通过"}
                       </TableCell>
                       <TableCell>
                         {typeof trial.score === "number"
@@ -426,7 +428,7 @@ export default function EvalBearEvalPage() {
                               href={`/project/${projectId}/traces/${traceId}`}
                             >
                               <ExternalLink className="h-3 w-3" />
-                              <span className="ml-1">Open</span>
+                              <span className="ml-1">查看</span>
                             </Link>
                           </Button>
                         ) : (
@@ -445,7 +447,7 @@ export default function EvalBearEvalPage() {
                       colSpan={6}
                       className="text-muted-foreground h-20 text-center"
                     >
-                      No trials for the selected run yet.
+                      暂无所选运行的试验记录。
                     </TableCell>
                   </TableRow>
                 ) : null}

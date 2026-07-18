@@ -55,7 +55,7 @@ export const NewPrompt = () => {
           : "Create new prompt",
         help: {
           description:
-            "Manage and version your prompts in EvalBear. Edit and update them via the UI and SDK. Retrieve the production version via the SDKs. Learn more in the docs.",
+            "在 EvalBear 中管理和版本控制您的提示词。通过 UI 和 SDK 进行编辑和更新。通过 SDK 获取生产版本。详见文档。",
           href: "https://langfuse.com/docs/prompts",
         },
         breadcrumb: breadcrumb,
@@ -63,8 +63,7 @@ export const NewPrompt = () => {
     >
       {initialPrompt ? (
         <p className="text-muted-foreground text-sm">
-          Prompts are immutable in EvalBear. To update a prompt, create a new
-          version.
+          提示词在 EvalBear 中是不可变的。要更新提示词，请创建新 version.
         </p>
       ) : null}
       <div className="my-8">

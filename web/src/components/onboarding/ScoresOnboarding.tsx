@@ -27,8 +27,7 @@ export function ScoresOnboarding() {
     },
     {
       title: "Use custom metrics",
-      description:
-        "EvalBear's scores are flexible and can be used to track any metric that's associated with an LLM application",
+      description: "EvalBear 的评分灵活且可用于追踪与 LLM 应用关联的任何指标",
       icon: <Code className="h-4 w-4" />,
     },
   ];

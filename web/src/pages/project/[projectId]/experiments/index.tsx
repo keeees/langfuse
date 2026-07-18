@@ -3,6 +3,7 @@ import { Button } from "@/src/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
   DialogTrigger,
 } from "@/src/components/ui/dialog";
 import { CreateExperimentsForm } from "@/src/features/experiments/components/CreateExperimentsForm";
@@ -75,6 +76,7 @@ export default function Experiments() {
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto">
+                <DialogTitle className="sr-only">Create experiment</DialogTitle>
                 <CreateExperimentsForm
                   key="create-experiment-form-project-experiments"
                   projectId={projectId}

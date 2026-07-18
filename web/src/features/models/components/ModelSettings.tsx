@@ -8,8 +8,7 @@ export function ModelsSettings(props: { projectId: string }) {
       <p className="mb-2 text-sm">
         A configuration that stores pricing information for an LLM model. Model
         definitions specify the cost per input and output token, enabling
-        EvalBear to automatically calculate the price of generations based on
-        token usage.
+        EvalBear 根据以下模型定义自动计算生成记录的价格 token usage.
       </p>
       <ModelTable projectId={props.projectId} />
     </>

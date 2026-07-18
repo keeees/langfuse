@@ -205,7 +205,7 @@ export function DashboardTable() {
           </span>
         ) : (
           <span className="flex gap-1 px-2 py-0.5 text-xs">
-            <UserIcon className="h-3 w-3" /> Project
+            <UserIcon className="h-3 w-3" /> 项目
           </span>
         );
       },

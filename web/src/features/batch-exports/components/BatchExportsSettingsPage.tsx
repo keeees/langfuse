@@ -14,10 +14,8 @@ export function BatchExportsSettingsPage(props: { projectId: string }) {
     <>
       <Header title="Exports" />
       <p className="mb-4 text-sm">
-        Export large datasets in your preferred format via the export buttons
-        across EvalBear. Exports are processed asynchronously and remain
-        available for download for one hour. You will receive an email
-        notification once your export is ready.
+        通过 EvalBear 各处的导出按钮以您偏好的格式导出大型数据集。
+        导出异步处理，下载链接在一小时内有效。 导出就绪后您将收到邮件通知。
       </p>
       {hasAccess ? (
         <SettingsTableCard>

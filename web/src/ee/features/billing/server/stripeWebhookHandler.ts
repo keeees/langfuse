@@ -51,9 +51,9 @@ export async function stripeWebhookHandler(req: NextRequest) {
     );
 
   if (!env.NEXT_PUBLIC_LANGFUSE_CLOUD_REGION || !stripeClient) {
-    logger.error("[Stripe Webhook] Endpoint only available in EvalBear Cloud");
+    logger.error("[Stripe Webhook] 端点仅在 EvalBear Cloud 上可用");
     return NextResponse.json(
-      { message: "Stripe webhook endpoint only available in EvalBear Cloud" },
+      { message: "Stripe webhook 端点仅在 EvalBear Cloud 上可用" },
       { status: 500 },
     );
   }

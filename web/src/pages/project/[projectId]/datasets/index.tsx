@@ -33,8 +33,8 @@ export default function Datasets() {
           title: "数据集",
           help: {
             description:
-              "Datasets in EvalBear are a collection of inputs (and expected outputs) of an LLM application. They are used to benchmark new releases before deployment to production. See docs to learn more.",
-            href: "https://langfuse.com/docs/evaluation/dataset-runs/datasets",
+              "EvalBear 中的数据集是 LLM 应用的输入（和预期输出）集合。它们用于在部署到生产环境之前对新版本进行基准测试。详见文档了解更多。",
+            href: undefined,
           },
         }}
         scrollable
@@ -50,8 +50,7 @@ export default function Datasets() {
         title: "数据集",
         help: {
           description:
-            "Datasets in EvalBear are a collection of inputs (and expected outputs) of an LLM application. They are used to benchmark new releases before deployment to production. See docs to learn more.",
-          href: "https://langfuse.com/docs/evaluation/dataset-runs/datasets",
+            "EvalBear 中的数据集是 LLM 应用的输入（和预期输出）集合。它们用于在部署到生产环境之前对新版本进行基准测试。",
         },
         actionButtonsRight: (
           <DatasetActionButton

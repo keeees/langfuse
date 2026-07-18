@@ -61,7 +61,7 @@ export function createInAppAgentInstrumentation({
       environment: tracing.environment,
     });
   } catch (error) {
-    logger.warn("Failed to initialize in-app agent EvalBear tracing", error);
+    logger.warn("初始化应用内代理 EvalBear 追踪失败", error);
     return undefined;
   }
 }
@@ -181,7 +181,7 @@ export class InAppAgentInstrumentation {
 
   flush() {
     this.processTracedEvents().catch((error) => {
-      logger.warn("Failed to flush in-app agent EvalBear tracing", error);
+      logger.warn("刷新应用内代理 EvalBear 追踪失败", error);
     });
   }
 

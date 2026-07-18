@@ -15,7 +15,7 @@ type ScoreBase = {
   metadata?: Record<string, unknown>;
 }
 
-A EvalBear score returned by a TypeScript evaluator. The contract is shown at the top of the editor and is locked.`;
+EvalBear 评估器（TypeScript）返回的评分。约定在编辑器顶部显示且已锁定。`;
 
 const PYTHON_SCORE_DOC = `@dataclass
 class Score:
@@ -26,7 +26,7 @@ class Score:
     config_id: str | None = None
     metadata: dict[str, Any] | None = None
 
-A EvalBear score returned by a Python evaluator.`;
+EvalBear 评估器（Python）返回的评分。`;
 
 export const TYPESCRIPT_CODE_EVAL_HOVER_DOCS = {
   evaluate: `function evaluate(ctx: EvaluationContext): EvaluationResult
@@ -34,7 +34,7 @@ export const TYPESCRIPT_CODE_EVAL_HOVER_DOCS = {
 The TypeScript function EvalBear executes for each matched target observation.`,
   ctx: `parameter ctx: EvaluationContext
 
-The TypeScript value EvalBear passes to evaluate.`,
+EvalBear 传递给评估的 TypeScript 值。`,
   EvaluationContext: `type EvaluationContext = {
   observation: {
     input: any;
@@ -49,7 +49,7 @@ The TypeScript value EvalBear passes to evaluate.`,
     | undefined;
 }
 
-The data EvalBear passes to a TypeScript evaluator. The definition is locked at the top of the editor.`,
+EvalBear 传递给 TypeScript 评估器的数据。定义在编辑器顶部显示且已锁定。`,
   observation: `property EvaluationContext.observation: {
   input: any;
   output: any;
@@ -62,126 +62,126 @@ The observation selected by the evaluator target.`,
   itemMetadata: any;
 }
 
-Experiment item data. Present when the evaluator runs on an experiment.`,
+评估器在实验上运行时存在的实验项数据。`,
   input: `property observation.input: any
 
-The input recorded on the observation.`,
+观察上记录的输入。`,
   output: `property observation.output: any
 
-The output recorded on the observation.`,
+观察上记录的输出。`,
   metadata: `property observation.metadata: any
 property Score.metadata?: Record<string, unknown>
 
-The metadata recorded on the observation, or extra metadata stored with a returned score.`,
+观察上记录的元数据，或随返回评分存储的额外元数据。`,
   itemExpectedOutput: `property experiment.itemExpectedOutput: any
 
-The expected output from the experiment item.`,
+实验项的预期输出。`,
   itemMetadata: `property experiment.itemMetadata: any
 
-The metadata from the experiment item.`,
+实验项的元数据。`,
   EvaluationResult: `type EvaluationResult = {
   scores: Score[];
 }
 
-The value returned by evaluate.`,
+evaluate 返回的值。`,
   Score: TYPESCRIPT_SCORE_DOC,
   scores: `property EvaluationResult.scores: Score[]
 
-One or more EvalBear scores to create for the target observation.`,
+为目标观察创建的一个或多个 EvalBear 评分。`,
   dataType: `property Score.dataType: "NUMERIC" | "BOOLEAN" | "CATEGORICAL" | "TEXT"
 
-The EvalBear score data type.`,
+EvalBear 评分数据类型。`,
   value: `property Score.value: number | string | boolean
 
-The score value. The allowed value depends on dataType: NUMERIC uses number, BOOLEAN uses boolean, and CATEGORICAL or TEXT use string.`,
+评分值。允许的值取决于 dataType：NUMERIC 使用数字，BOOLEAN 使用布尔值，CATEGORICAL 或 TEXT 使用字符串。`,
   name: `property Score.name: string
 
-The score name.`,
+评分名称。`,
   comment: `property Score.comment?: string
 
-The reasoning or explanation stored with the score.`,
+与评分一起存储的推理或解释。`,
   configId: `property Score.configId?: string | null
 
-The score config id to attach to the score.`,
+要附加到评分的评分配置 ID。`,
 } satisfies CodeEvalHoverDocs;
 
 export const PYTHON_CODE_EVAL_HOVER_DOCS = {
   evaluate: `def evaluate(ctx: EvaluationContext) -> EvaluationResult
 
-The Python function EvalBear executes for each matched target observation.`,
+EvalBear 为每个匹配的目标观察执行的 Python 函数。`,
   ctx: `parameter ctx: EvaluationContext
 
-The Python dataclass value EvalBear passes to evaluate.`,
+EvalBear 传递给评估的 Python 数据类值。`,
   Any: `typing.Any
 
-Use for JSON-like evaluator values whose concrete type depends on the target observation.`,
+用于 JSON 类型的评估器值，其具体类型取决于目标观察。`,
   dataclass: `dataclasses.dataclass
 
-Use to describe the Python evaluator context and result classes.`,
+用于描述 Python 评估器上下文和结果类。`,
   ObservationContext: `@dataclass
 class ObservationContext:
     input: Any = None
     output: Any = None
     metadata: Any = None
 
-The observation selected by the evaluator target.`,
+评估器目标选择的观察。`,
   ExperimentContext: `@dataclass
 class ExperimentContext:
     item_expected_output: Any = None
     item_metadata: Any = None
 
-Experiment item data. Present when the evaluator runs on an experiment.`,
+评估器在实验上运行时存在的实验项数据。`,
   EvaluationContext: `@dataclass
 class EvaluationContext:
     observation: ObservationContext
     experiment: ExperimentContext | None = None
 
-The data EvalBear passes to a Python evaluator.`,
+EvalBear 传递给 Python 评估器的数据。`,
   EvaluationResult: `@dataclass
 class EvaluationResult:
     scores: list[Score]
 
-The value returned by evaluate.`,
+evaluate 返回的值。`,
   Score: PYTHON_SCORE_DOC,
   observation: `property ctx.observation: ObservationContext
 
-The observation selected by the evaluator target.`,
+评估器目标选择的观察。`,
   experiment: `property ctx.experiment: ExperimentContext | None
 
-Experiment item data. Present when the evaluator runs on an experiment.`,
+评估器在实验上运行时存在的实验项数据。`,
   input: `property observation.input: Any
 
-The input recorded on the observation.`,
+观察上记录的输入。`,
   output: `property observation.output: Any
 
-The output recorded on the observation.`,
+观察上记录的输出。`,
   metadata: `property observation.metadata or score.metadata
 
-Observation metadata is available on the evaluator context. Score metadata stores extra details on a returned score.`,
+观察元数据在评估器上下文中可用。评分元数据存储返回评分的额外详情。`,
   item_expected_output: `property experiment.item_expected_output: Any
 
-The expected output from the experiment item.`,
+实验项的预期输出。`,
   item_metadata: `property experiment.item_metadata: Any
 
-The metadata from the experiment item.`,
+实验项的元数据。`,
   scores: `property result.scores: list[Score]
 
-One or more EvalBear scores to create for the target observation.`,
+为目标观察创建的一个或多个 EvalBear 评分。`,
   data_type: `property score.data_type: str | None
 
-The EvalBear score data type. Use NUMERIC, BOOLEAN, CATEGORICAL, or TEXT.`,
+EvalBear 评分数据类型。使用 NUMERIC、BOOLEAN、CATEGORICAL 或 TEXT。`,
   value: `property score.value: int | float | str | bool
 
-The score value. The allowed value depends on data_type: NUMERIC uses a number, BOOLEAN uses a boolean, and CATEGORICAL or TEXT use a string.`,
+评分值。允许的值取决于 data_type：NUMERIC 使用数字，BOOLEAN 使用布尔值，CATEGORICAL 或 TEXT 使用字符串。`,
   name: `property score.name: str
 
-The score name.`,
+评分名称。`,
   comment: `property score.comment: str | None
 
-The reasoning or explanation stored with the score.`,
+与评分一起存储的推理或解释。`,
   config_id: `property score.config_id: str | None
 
-The score config id to attach to the score.`,
+要附加到评分的评分配置 ID。`,
 } satisfies CodeEvalHoverDocs;
 
 export function getCodeEvalHoverDocs(

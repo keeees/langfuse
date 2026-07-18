@@ -58,10 +58,10 @@ export const LangfuseMediaView = ({
   if (!mediaData)
     return (
       <div className="flex items-center gap-2">
-        <span title="Invalid EvalBear Media Tag">
+        <span title="无效的 EvalBear 媒体标签">
           <ImageOff className="h-4 w-4" />
         </span>
-        <span className="truncate text-sm">Invalid EvalBear Media Tag</span>
+        <span className="truncate text-sm">无效的 EvalBear 媒体标签</span>
       </div>
     );
 

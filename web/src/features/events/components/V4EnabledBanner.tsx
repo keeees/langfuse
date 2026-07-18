@@ -65,10 +65,9 @@ export function V4EnabledBanner() {
         <ZapIcon className="h-4 w-4 shrink-0" />
         <p className="flex flex-1 flex-row gap-1 text-sm">
           <span className="font-semibold">
-            Faster EvalBear experience enabled (preview).
+            更快的 EvalBear 体验已启用（预览）。
           </span>{" "}
-          Missing real-time data? Upgrade your EvalBear SDK to the latest major
-          version.{" "}
+          缺少实时数据？请将 EvalBear SDK 升级到最新主版本 version.{" "}
           <Link
             href={CHANGELOG_URL}
             target="_blank"

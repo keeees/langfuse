@@ -29,7 +29,7 @@ export class AdminApiAuthService {
     ) {
       return {
         isAuthorized: false,
-        error: "Not accessible on EvalBear Cloud",
+        error: "在 EvalBear Cloud 上不可访问",
       };
     }
 

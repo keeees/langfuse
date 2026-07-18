@@ -36,7 +36,7 @@ export function PromptsOnboarding({ projectId }: { projectId: string }) {
   return (
     <SplashScreen
       title="Get Started with Prompt Management"
-      description="EvalBear Prompt Management helps you centrally manage, version control, and collaboratively iterate on your prompts. Start using prompt management to improve your LLM application's performance and maintainability."
+      description="EvalBear 提示词管理帮助您集中管理、版本控制并协作迭代提示词。开始使用提示词管理来提升 LLM 应用的性能和可维护性。"
       valuePropositions={valuePropositions}
       primaryAction={{
         label: "Create Prompt",

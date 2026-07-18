@@ -83,11 +83,11 @@ const DemoOrganizationTile = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Try EvalBear Demo</CardTitle>
+        <CardTitle>试用 EvalBear 演示</CardTitle>
       </CardHeader>
       <CardContent>
-        We have built a Q&A chatbot that answers questions based on the EvalBear
-        Docs. Interact with it to see traces in EvalBear.
+        我们构建了一个基于 EvalBear 文档回答问题的问答聊天机器人。与它互动以在
+        EvalBear 中查看追踪记录。
       </CardContent>
       <CardFooter>
         <Button asChild variant="secondary">
@@ -353,7 +353,7 @@ const Onboarding = () => {
         <CardDescription>
           {canCreateOrgs
             ? "Create an organization to get started. Alternatively, ask your organization admin to invite you."
-            : "You need to get invited to an organization to get started with EvalBear."}
+            : "您需要被邀请加入组织才能开始使用 EvalBear。"}
         </CardDescription>
       </CardContent>
       <CardFooter className="flex gap-4">

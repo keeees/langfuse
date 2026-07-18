@@ -36,7 +36,7 @@ export function DatasetsOnboarding({ projectId }: { projectId: string }) {
   return (
     <SplashScreen
       title="Get Started with Datasets & Experiments"
-      description="Datasets in EvalBear are collections of inputs (and expected outputs) for your LLM application. You can run Experiments against these datasets to test new releases before deployment to production."
+      description="EvalBear 中的数据集是 LLM 应用的输入（和预期输出）集合。您可以针对这些数据集运行实验，在部署到生产环境之前测试新版本。"
       valuePropositions={valuePropositions}
       primaryAction={{
         label: "Create Dataset",

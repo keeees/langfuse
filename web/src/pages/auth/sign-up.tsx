@@ -17,7 +17,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { env } from "@/src/env.mjs";
 import { useState } from "react";
-import { LangfuseIcon } from "@/src/components/LangfuseLogo";
+import { LangfuseIcon as EvalBearIcon } from "@/src/components/LangfuseLogo";
 import { CloudPrivacyNotice } from "@/src/features/auth/components/AuthCloudPrivacyNotice";
 import { CloudRegionSwitch } from "@/src/features/auth/components/AuthCloudRegionSwitch";
 import {
@@ -26,7 +26,7 @@ import {
   type PageProps,
 } from "@/src/pages/auth/sign-in";
 import { PasswordInput } from "@/src/components/ui/password-input";
-import { useLangfuseCloudRegion } from "@/src/features/organizations/hooks";
+import { useLangfuseCloudRegion as useEvalBearCloudRegion } from "@/src/features/organizations/hooks";
 import { useRouter } from "next/router";
 import { getSafeRedirectPath } from "@/src/utils/redirect";
 import { usePostHogClientCapture } from "@/src/features/posthog-analytics/usePostHogClientCapture";
@@ -77,7 +77,7 @@ export default function SignUp({
 function StandardSignupFlow({
   authProviders,
 }: Pick<PageProps, "authProviders" | "emailVerificationRequired">) {
-  const { isLangfuseCloud, region } = useLangfuseCloudRegion();
+  const { isLangfuseCloud, region } = useEvalBearCloudRegion();
   const router = useRouter();
   const capture = usePostHogClientCapture();
 
@@ -292,7 +292,7 @@ function StandardSignupFlow({
             disabled={showPasswordStep ? false : form.watch("email") === ""}
             data-testid="submit-email-password-sign-up-form"
           >
-            {showPasswordStep ? "Sign up" : "Continue"}
+            {showPasswordStep ? "创建账号" : "继续"}
           </Button>
           {formError ? (
             <div className="text-destructive text-center text-sm font-medium">
@@ -403,11 +403,11 @@ function VerifiedSignupFlow({
     return (
       <>
         <Head>
-          <title>Verify your email | EvalBear</title>
+          <title>验证邮箱 | EvalBear</title>
         </Head>
         <div className="flex flex-1 flex-col py-6 sm:min-h-full sm:justify-center sm:px-6 sm:py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
-            <LangfuseIcon className="mx-auto" />
+            <EvalBearIcon className="mx-auto" />
             <h2 className="text-primary mt-4 text-center text-2xl leading-9 font-bold tracking-tight">
               Check your email
             </h2>
@@ -538,34 +538,40 @@ function VerifiedSignupFlow({
 }
 
 function SignupPageShell({ children }: { children: React.ReactNode }) {
-  const { isLangfuseCloud } = useLangfuseCloudRegion();
+  const { isLangfuseCloud } = useEvalBearCloudRegion();
 
   return (
     <>
       <Head>
-        <title>Sign up | EvalBear</title>
+        <title>注册 | EvalBear</title>
         <meta
           name="description"
           content="Create an account, no credit card required."
           key="desc"
         />
       </Head>
-      <div className="flex flex-1 flex-col py-6 sm:min-h-full sm:justify-center sm:px-6 sm:py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <LangfuseIcon className="mx-auto" />
-          <h2 className="text-primary mt-4 text-center text-2xl leading-9 font-bold tracking-tight">
-            Create new account
+      <div className="w-full">
+        <div className="mx-auto w-full max-w-[460px]">
+          <p className="text-accent mb-3 font-mono text-xs tracking-[0.16em] uppercase">
+            Start Evaluating
+          </p>
+          <h2 className="text-foreground text-3xl leading-tight font-semibold tracking-tight">
+            创建你的 <span className="text-signature-gradient">EvalBear</span>{" "}
+            工作区
           </h2>
+          <p className="text-muted-foreground mt-3 text-sm leading-6">
+            开放注册后，团队成员可以直接进入统一评测入口。
+          </p>
         </div>
         {isLangfuseCloud ? (
-          <div className="text-center sm:mx-auto sm:w-full sm:max-w-[480px]">
-            No credit card required.
+          <div className="border-border bg-card/75 text-muted-foreground mx-auto mt-6 w-full max-w-[460px] rounded-2xl border p-3 text-center text-sm shadow-[var(--shadow-sm)] backdrop-blur">
+            无需信用卡。
           </div>
         ) : null}
 
         <CloudRegionSwitch isSignUpPage />
 
-        <div className="bg-background mt-14 px-6 py-10 shadow-sm sm:mx-auto sm:w-full sm:max-w-[480px] sm:rounded-lg sm:px-10">
+        <div className="border-border bg-card/85 mx-auto mt-8 w-full max-w-[460px] rounded-[28px] border px-6 py-8 shadow-[var(--shadow-lg)] backdrop-blur-xl sm:px-8">
           {children}
         </div>
         <CloudPrivacyNotice action="creating an account" />
@@ -577,13 +583,13 @@ function SignupPageShell({ children }: { children: React.ReactNode }) {
 function SignupFooter() {
   const router = useRouter();
   return (
-    <p className="text-muted-foreground mt-10 text-center text-sm">
-      Already have an account?{" "}
+    <p className="text-muted-foreground mt-8 text-center text-sm">
+      已有账号？{" "}
       <Link
         href={`/auth/sign-in${router.asPath.includes("?") ? router.asPath.substring(router.asPath.indexOf("?")) : ""}`}
         className="text-primary-accent hover:text-hover-primary-accent leading-6 font-semibold"
       >
-        Sign in
+        去登录
       </Link>
     </p>
   );

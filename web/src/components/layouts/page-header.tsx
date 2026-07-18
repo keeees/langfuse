@@ -74,7 +74,7 @@ const PageHeader = ({
   return (
     <div
       className={cn([
-        "top-banner-offset bg-background sticky z-30 w-full border-b shadow-xs",
+        "top-banner-offset bg-card/[0.92] border-border sticky z-30 w-full border-b",
         className,
       ])}
       id="page-header"

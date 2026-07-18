@@ -350,9 +350,7 @@ export const VariableMappingCard = ({
                               <div className="flex items-center gap-2">
                                 <VariableMappingDescription
                                   title="Object"
-                                  description={
-                                    "EvalBear object to retrieve the data from."
-                                  }
+                                  description={"从中检索数据的 EvalBear 对象。"}
                                   href={
                                     "https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge"
                                   }
@@ -416,7 +414,7 @@ export const VariableMappingCard = ({
                                     <VariableMappingDescription
                                       title={"Object Name"}
                                       description={
-                                        "Name of the EvalBear object to retrieve the data from."
+                                        "要从中检索数据的 EvalBear 对象名称。"
                                       }
                                       href={
                                         "https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge"
@@ -516,7 +514,7 @@ export const VariableMappingCard = ({
                                 <VariableMappingDescription
                                   title={"Object Field"}
                                   description={
-                                    "Field on the EvalBear object to insert into the template."
+                                    "要插入模板的 EvalBear 对象字段。"
                                   }
                                   href={
                                     "https://langfuse.com/docs/evaluation/evaluation-methods/llm-as-a-judge"

@@ -1,18 +1,17 @@
 /**
  * Unauthenticated layout variant
  * Used for sign-in, sign-up, and other auth pages
- * Minimal layout with no sidebar or navigation
+ * Wraps children in the EvalBear auth shell.
  */
 
 import type { PropsWithChildren } from "react";
 import { SidebarProvider } from "@/src/components/ui/sidebar";
+import { EvalBearAuthLayout } from "@/src/components/evalbear/EvalBearAuthLayout";
 
 export function UnauthenticatedLayout({ children }: PropsWithChildren) {
   return (
-    <SidebarProvider className="bg-primary-foreground">
-      <main className="min-h-dvh w-full overflow-y-auto p-3 px-4 py-4 sm:px-6 lg:px-8">
-        {children}
-      </main>
+    <SidebarProvider className="bg-background">
+      <EvalBearAuthLayout>{children}</EvalBearAuthLayout>
     </SidebarProvider>
   );
 }

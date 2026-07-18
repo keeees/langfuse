@@ -30,10 +30,10 @@ export function AgentToolsBanner() {
         <Bot className="h-4 w-4 shrink-0" />
         <span>
           <span className="font-semibold">
-            EvalBear works great with your AI coding agents.
+            EvalBear 可与您的 AI 编码代理完美配合。
           </span>{" "}
           Connect Claude Code, Codex, and other agents to your data with the
-          EvalBear Agent Skill, MCP server, and CLI.
+          EvalBear Agent Skill、MCP 服务器和 CLI。
         </span>
       </div>
     </Callout>

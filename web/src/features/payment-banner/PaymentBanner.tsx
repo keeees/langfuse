@@ -98,7 +98,7 @@ export function PaymentBanner() {
         <div className="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:gap-2">
           <span className="text-sm font-semibold">Billing Issue:</span>
           <span className="text-sm">
-            {`We have problems collecting subscription payment for your organization '${organization.name}'. Please update your payment information to continue using EvalBear.`}
+            {`我们在收取您的组织 '${organization.name}' 的订阅费用时遇到问题。请更新您的付款信息以继续使用 EvalBear。`}
           </span>
         </div>
       </div>

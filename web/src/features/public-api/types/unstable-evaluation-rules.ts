@@ -83,8 +83,7 @@ export const PostUnstableEvaluationRuleBody = z
       data.mapping === undefined,
     {
       path: ["mapping"],
-      message:
-        "Code evaluator mappings are managed by EvalBear and cannot be provided in the request body.",
+      message: "代码评估器映射由 EvalBear 管理，不能在请求体中提供。",
     },
   )
   .refine(

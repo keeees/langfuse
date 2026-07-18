@@ -11,7 +11,7 @@ const denyOnLangfuseCloud = () => {
   if (env.NEXT_PUBLIC_LANGFUSE_CLOUD_REGION) {
     throw new TRPCError({
       code: "FORBIDDEN",
-      message: "Background migrations are not available in EvalBear Cloud",
+      message: "后台迁移在 EvalBear Cloud 上不可用",
     });
   }
 };

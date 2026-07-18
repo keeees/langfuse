@@ -93,7 +93,7 @@ const webCalloutFormSchema = z
       if (WEB_CALLOUT_BLOCKED_HEADER_NAMES.has(lowerName)) {
         ctx.addIssue({
           code: "custom",
-          message: "This header is set by EvalBear and cannot be customized.",
+          message: "此头部由 EvalBear 设置，不能自定义。",
           path: ["headers", index, "name"],
         });
       }
@@ -195,8 +195,8 @@ export function WebCalloutSettingsPage(props: { projectId: string }) {
       </div>
 
       <p className="text-primary mb-4 text-sm">
-        Configure a project-level callout endpoint for trace, observation, and
-        session detail actions. EvalBear sends a backend POST with ids only.
+        为追踪、观察和会话详情操作配置项目级外呼端点。EvalBear 从后端发送仅包含
+        ID 的 POST 请求。
       </p>
 
       <Card className="overflow-auto">
@@ -365,8 +365,7 @@ function WebCalloutEndpointDialog(props: {
             {props.endpoint ? "Edit Callout Endpoint" : "Add Callout Endpoint"}
           </DialogTitle>
           <DialogDescription>
-            EvalBear sends a backend JSON POST when a user clicks a web callout
-            action.
+            当用户点击外呼操作时，EvalBear 从后端发送 JSON POST 请求。
           </DialogDescription>
         </DialogHeader>
 
@@ -374,17 +373,16 @@ function WebCalloutEndpointDialog(props: {
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <DialogBody>
               <Alert>
-                <AlertTitle>Backend request requirements</AlertTitle>
+                <AlertTitle>后端请求要求</AlertTitle>
                 <AlertDescription className="space-y-3">
                   <p>
-                    EvalBear sends this request from its backend. Your endpoint
-                    must accept <code>POST</code> requests with{" "}
-                    <code>Content-Type: application/json</code> and return HTTP
-                    2xx within 5 seconds.
+                    EvalBear 从后端发送此请求。您的端点必须接受{" "}
+                    <code>POST</code> 请求， 带有{" "}
+                    <code>Content-Type: application/json</code>，并在 5 秒内返回
+                    HTTP 2xx。
                   </p>
                   <p>
-                    Header values are encrypted at rest and sent only from the
-                    backend. They are not exposed to the user&apos;s browser.
+                    头部值在存储时加密，仅从后端发送。它们不会暴露给用户的浏览器。
                   </p>
                   <p>
                     Every configured header is sent with each callout request.
@@ -421,8 +419,8 @@ function WebCalloutEndpointDialog(props: {
                       />
                     </FormControl>
                     <FormDescription>
-                      HTTP or HTTPS URL. Custom ports are allowed. The endpoint
-                      is called from the EvalBear backend.
+                      HTTP 或 HTTPS URL。允许自定义端口。该端点从 EvalBear
+                      后端调用。
                     </FormDescription>
                     <FormMessage />
                   </FormItem>

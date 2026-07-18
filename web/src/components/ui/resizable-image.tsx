@@ -98,7 +98,7 @@ export const ResizableImage = ({
     );
   }
 
-  const displayError = `Cannot load image. ${src.includes("http") ? "Http images are not rendered in EvalBear for security reasons" : "Invalid image URL"}`;
+  const displayError = `Cannot load image. ${src.includes("http") ? "出于安全原因，EvalBear 不渲染 HTTP 图片" : "无效的图片 URL"}`;
 
   return (
     <div>

@@ -236,7 +236,7 @@ export const slackRouter = createTRPCRouter({
             type: "header",
             text: {
               type: "plain_text",
-              text: "🎉 Test Message from EvalBear",
+              text: "🎉 来自 EvalBear 的测试消息",
               emoji: true,
             },
           },
@@ -244,7 +244,7 @@ export const slackRouter = createTRPCRouter({
             type: "section",
             text: {
               type: "mrkdwn",
-              text: "Hello from EvalBear! This is a test message to verify your Slack integration is working properly.",
+              text: "来自 EvalBear 的问候！这是一条测试消息，用于验证您的 Slack 集成是否正常工作。",
             },
           },
           {
@@ -275,7 +275,7 @@ export const slackRouter = createTRPCRouter({
                 type: "button",
                 text: {
                   type: "plain_text",
-                  text: "Open EvalBear",
+                  text: "打开 EvalBear",
                   emoji: true,
                 },
                 url: `${env.NEXTAUTH_URL}/project/${input.projectId}`,
@@ -289,7 +289,7 @@ export const slackRouter = createTRPCRouter({
           client,
           channelId: input.channelId,
           blocks: testBlocks,
-          text: "Test message from EvalBear",
+          text: "来自 EvalBear 的测试消息",
         });
 
         // For manually-typed channel names (id starts with #), resolve
@@ -355,7 +355,7 @@ export const slackRouter = createTRPCRouter({
         const userMessage = (() => {
           switch (slackError) {
             case "channel_not_found":
-              return 'Channel not found. The channel may not exist or is a private channel the bot has not been invited to. For private channels, invite the app with "/invite @EvalBear" in that channel.';
+              return '频道未找到。该频道可能不存在或是未邀请机器人的私有频道。对于私有频道，请在该频道中使用 "/invite @EvalBear" 邀请应用。';
             case "not_in_channel":
               return "The bot is not a member of this channel. Please invite the bot to the channel first.";
             case "is_archived":

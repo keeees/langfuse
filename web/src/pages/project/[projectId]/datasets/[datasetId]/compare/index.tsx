@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
   DialogTrigger,
 } from "@/src/components/ui/dialog";
 import { CreateExperimentsForm } from "@/src/features/experiments/components/CreateExperimentsForm";
@@ -128,6 +129,7 @@ function DatasetCompareInternal() {
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-h-[90vh] overflow-y-auto">
+                <DialogTitle className="sr-only">Create experiment</DialogTitle>
                 <CreateExperimentsForm
                   key={`create-experiment-form-${datasetId}`}
                   projectId={projectId as string}

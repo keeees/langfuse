@@ -24,7 +24,7 @@ if (!env.LANGFUSE_INIT_ORG_ID) {
 
   if (setInitVars.length > 0) {
     logger.warn(
-      `[EvalBear Init] LANGFUSE_INIT_ORG_ID is not set but other LANGFUSE_INIT_* variables are configured. ` +
+      `[EvalBear Init] LANGFUSE_INIT_ORG_ID 未设置但其他 LANGFUSE_INIT_* 变量已配置。` +
         `The following variables will be ignored: ${setInitVars.join(", ")}. ` +
         `Set LANGFUSE_INIT_ORG_ID to enable initialization.`,
     );
@@ -61,7 +61,7 @@ if (env.LANGFUSE_INIT_ORG_ID) {
       ? "LANGFUSE_INIT_PROJECT_SECRET_KEY"
       : "LANGFUSE_INIT_PROJECT_PUBLIC_KEY";
     logger.warn(
-      `[EvalBear Init] Partial API key configuration: ${missingKey} is not set. ` +
+      `[EvalBear Init] 部分 API 密钥配置：${missingKey} 未设置。` +
         `Both LANGFUSE_INIT_PROJECT_PUBLIC_KEY and LANGFUSE_INIT_PROJECT_SECRET_KEY must be set to create API keys.`,
     );
   }
@@ -69,7 +69,7 @@ if (env.LANGFUSE_INIT_ORG_ID) {
   // API keys without project ID
   if ((hasPublicKey || hasSecretKey) && !env.LANGFUSE_INIT_PROJECT_ID) {
     logger.warn(
-      `[EvalBear Init] LANGFUSE_INIT_PROJECT_ID is not set but API key variables are configured. ` +
+      `[EvalBear Init] LANGFUSE_INIT_PROJECT_ID 未设置但 API 密钥变量已配置。` +
         `API keys will not be created. Set LANGFUSE_INIT_PROJECT_ID to enable API key creation.`,
     );
   }
@@ -80,7 +80,7 @@ if (env.LANGFUSE_INIT_ORG_ID) {
       ? "LANGFUSE_INIT_USER_PASSWORD"
       : "LANGFUSE_INIT_USER_EMAIL";
     logger.warn(
-      `[EvalBear Init] Partial user configuration: ${missingVar} is not set. ` +
+      `[EvalBear Init] 部分用户配置：${missingVar} 未设置。` +
         `Both LANGFUSE_INIT_USER_EMAIL and LANGFUSE_INIT_USER_PASSWORD must be set to create a user.`,
     );
   }

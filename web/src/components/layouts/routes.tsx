@@ -1,34 +1,34 @@
 import { type Flag } from "@/src/features/feature-flags/types";
 import { type ProjectScope } from "@/src/features/rbac/constants/projectAccessRights";
 import {
-  BellRing,
   Database,
   LayoutDashboard,
-  LifeBuoy,
   ListTree,
   type LucideIcon,
   Settings,
   UsersIcon,
   TerminalIcon,
-  Lightbulb,
   Grid2X2,
   Sparkle,
   FileJson,
   Search,
   Home,
   SquarePercent,
-  ClipboardPen,
   Clock,
   Beaker,
   ClipboardCheck,
+  Brain,
+  BookOpen,
+  History,
+  FileText,
+  Cog,
+  Eye,
 } from "lucide-react";
 import { type ReactNode } from "react";
 import { type Entitlement } from "@/src/features/entitlements/constants/entitlements";
 import { type User } from "next-auth";
 import { type OrganizationScope } from "@/src/features/rbac/constants/organizationAccessRights";
-import { SupportButton } from "@/src/components/nav/support-button";
 import { InAppAiAgentButton } from "@/src/components/nav/in-app-ai-agent-button";
-import { BookACallButton } from "@/src/components/nav/book-a-call-button";
 import { V4SidebarToggle } from "@/src/features/events/components/V4SidebarToggle";
 import { SidebarMenuButton } from "@/src/components/ui/sidebar";
 import { KeyboardShortcut } from "@/src/components/ui/keyboard-shortcut";
@@ -43,9 +43,10 @@ export enum RouteSection {
 }
 
 export enum RouteGroup {
-  Observability = "可观测性",
-  PromptManagement = "提示词管理",
-  Evaluation = "评估",
+  Overview = "总览",
+  AgentAndModel = "Agent 观测",
+  RagAndMemory = "评测中心",
+  Settings = "设置",
 }
 
 export type Route = {
@@ -97,18 +98,20 @@ export const ROUTES: Route[] = [
     icon: Home,
     section: RouteSection.Main,
   },
+  // ── 总览 ──
   {
-    title: "看板",
-    pathname: `/project/[projectId]/dashboards`,
+    title: "总览",
+    pathname: `/project/[projectId]/overview`,
     icon: LayoutDashboard,
-    productModule: "dashboards",
+    group: RouteGroup.Overview,
     section: RouteSection.Main,
   },
+  // ── Agent 与模型 ──
   {
     title: "追踪",
     icon: ListTree,
     productModule: "tracing",
-    group: RouteGroup.Observability,
+    group: RouteGroup.AgentAndModel,
     section: RouteSection.Main,
     pathname: `/project/[projectId]/traces`,
   },
@@ -116,7 +119,7 @@ export const ROUTES: Route[] = [
     title: "会话",
     icon: Clock,
     productModule: "tracing",
-    group: RouteGroup.Observability,
+    group: RouteGroup.AgentAndModel,
     section: RouteSection.Main,
     pathname: `/project/[projectId]/sessions`,
   },
@@ -125,19 +128,8 @@ export const ROUTES: Route[] = [
     pathname: `/project/[projectId]/users`,
     icon: UsersIcon,
     productModule: "tracing",
-    group: RouteGroup.Observability,
+    group: RouteGroup.AgentAndModel,
     section: RouteSection.Main,
-  },
-  {
-    title: "监控",
-    pathname: "/project/[projectId]/monitors",
-    icon: BellRing,
-    projectRbacScopes: ["monitors:read"],
-    featureFlag: "monitors",
-    show: ({ isLangfuseCloud }) => isLangfuseCloud,
-    group: RouteGroup.Observability,
-    section: RouteSection.Main,
-    label: "Beta",
   },
   {
     title: "提示词",
@@ -145,7 +137,7 @@ export const ROUTES: Route[] = [
     icon: FileJson,
     projectRbacScopes: ["prompts:read"],
     productModule: "prompt-management",
-    group: RouteGroup.PromptManagement,
+    group: RouteGroup.AgentAndModel,
     section: RouteSection.Main,
   },
   {
@@ -153,55 +145,95 @@ export const ROUTES: Route[] = [
     pathname: "/project/[projectId]/playground",
     icon: TerminalIcon,
     productModule: "playground",
-    group: RouteGroup.PromptManagement,
+    group: RouteGroup.AgentAndModel,
+    section: RouteSection.Main,
+  },
+  {
+    title: "模型",
+    pathname: "/project/[projectId]/settings/models",
+    icon: Cog,
+    group: RouteGroup.AgentAndModel,
     section: RouteSection.Main,
   },
   {
     title: "评分",
     pathname: `/project/[projectId]/scores`,
-    group: RouteGroup.Evaluation,
+    group: RouteGroup.AgentAndModel,
     section: RouteSection.Main,
     icon: SquarePercent,
-  },
-  {
-    title: "EvalBear Eval",
-    pathname: `/project/[projectId]/evalbear-eval`,
-    group: RouteGroup.Evaluation,
-    section: RouteSection.Main,
-    icon: ClipboardCheck,
-  },
-  {
-    title: "评估器",
-    icon: Lightbulb,
-    productModule: "evaluation",
-    projectRbacScopes: ["evalJob:read"],
-    group: RouteGroup.Evaluation,
-    section: RouteSection.Main,
-    pathname: `/project/[projectId]/evals`,
-  },
-  {
-    title: "人工标注",
-    pathname: `/project/[projectId]/annotation-queues`,
-    projectRbacScopes: ["annotationQueues:read"],
-    group: RouteGroup.Evaluation,
-    section: RouteSection.Main,
-    icon: ClipboardPen,
   },
   {
     title: "数据集",
     pathname: `/project/[projectId]/datasets`,
     icon: Database,
     productModule: "datasets",
-    group: RouteGroup.Evaluation,
+    group: RouteGroup.AgentAndModel,
     section: RouteSection.Main,
   },
+  // ── 评测中心 ──
   {
-    title: "实验",
-    pathname: `/project/[projectId]/experiments`,
-    icon: Beaker,
-    featureFlag: "experimentsV4Enabled",
-    group: RouteGroup.Evaluation,
+    title: "评测总览",
+    pathname: `/project/[projectId]/evalbear-eval`,
+    projectRbacScopes: ["evalJob:read"],
+    group: RouteGroup.RagAndMemory,
     section: RouteSection.Main,
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Agent 评测",
+    pathname: `/project/[projectId]/evalbear-eval/agent`,
+    projectRbacScopes: ["evalJob:read"],
+    group: RouteGroup.RagAndMemory,
+    section: RouteSection.Main,
+    icon: Beaker,
+  },
+  {
+    title: "记忆评测",
+    pathname: `/project/[projectId]/evalbear-eval/memory`,
+    projectRbacScopes: ["evalJob:read"],
+    group: RouteGroup.RagAndMemory,
+    section: RouteSection.Main,
+    icon: Brain,
+  },
+  {
+    title: "RAG 评测",
+    pathname: `/project/[projectId]/evalbear-eval/rag`,
+    projectRbacScopes: ["evalJob:read"],
+    group: RouteGroup.RagAndMemory,
+    section: RouteSection.Main,
+    icon: BookOpen,
+  },
+  {
+    title: "运行历史",
+    pathname: `/project/[projectId]/evalbear-eval/history`,
+    projectRbacScopes: ["evalJob:read"],
+    group: RouteGroup.RagAndMemory,
+    section: RouteSection.Main,
+    icon: History,
+  },
+  {
+    title: "样本复核",
+    pathname: `/project/[projectId]/evalbear-eval/review`,
+    projectRbacScopes: ["evalJob:read"],
+    group: RouteGroup.RagAndMemory,
+    section: RouteSection.Main,
+    icon: Eye,
+  },
+  {
+    title: "报告",
+    pathname: `/project/[projectId]/evalbear-eval/reports`,
+    projectRbacScopes: ["evalJob:read"],
+    group: RouteGroup.RagAndMemory,
+    section: RouteSection.Main,
+    icon: FileText,
+  },
+  {
+    title: "配置",
+    pathname: `/project/[projectId]/evalbear-eval/config`,
+    projectRbacScopes: ["evalJob:read"],
+    group: RouteGroup.RagAndMemory,
+    section: RouteSection.Main,
+    icon: Cog,
   },
   {
     title: "升级",
@@ -247,12 +279,6 @@ export const ROUTES: Route[] = [
     section: RouteSection.Secondary,
   },
   {
-    title: "预约通话",
-    section: RouteSection.Secondary,
-    pathname: "",
-    menuNode: <BookACallButton />,
-  },
-  {
     title: "AI 助手",
     section: RouteSection.Secondary,
     pathname: "",
@@ -260,13 +286,6 @@ export const ROUTES: Route[] = [
     show: ({ organization, projectId, isLangfuseCloud }) =>
       isLangfuseCloud && organization !== undefined && projectId !== undefined,
     menuNode: <InAppAiAgentButton />,
-  },
-  {
-    title: "帮助",
-    icon: LifeBuoy,
-    section: RouteSection.Secondary,
-    pathname: "", // Empty pathname since this is a dropdown
-    menuNode: <SupportButton />,
   },
 ];
 

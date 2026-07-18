@@ -56,8 +56,7 @@ export const webhookSchema = z.object({
           return !defaultHeaderKeys.includes(name.trim().toLowerCase());
         },
         {
-          message:
-            "This header is automatically added by EvalBear and cannot be customized",
+          message: "此头部由 EvalBear 自动添加，不能自定义",
         },
       ),
       value: z.string(),
@@ -181,7 +180,7 @@ export const WebhookActionForm: React.FC<WebhookActionFormProps> = ({
         {/* Default Headers Section */}
         <div className="mb-4">
           <FormDescription className="mb-2">
-            Default headers (automatically added by EvalBear):
+            默认头部（由 EvalBear 自动添加）：
           </FormDescription>
           {Object.entries({
             ...WebhookDefaultHeaders,

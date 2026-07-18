@@ -27,9 +27,10 @@ const groupProcessedNavigation = (items: NavigationItem[]) => {
   // Build flattened array preserving group order
   const groupedItems = groupedResult
     ? [
-        ...(grouped[RouteGroup.Observability] || []),
-        ...(grouped[RouteGroup.PromptManagement] || []),
-        ...(grouped[RouteGroup.Evaluation] || []),
+        ...(grouped[RouteGroup.Overview] || []),
+        ...(grouped[RouteGroup.AgentAndModel] || []),
+        ...(grouped[RouteGroup.RagAndMemory] || []),
+        ...(grouped[RouteGroup.Settings] || []),
       ]
     : [];
 

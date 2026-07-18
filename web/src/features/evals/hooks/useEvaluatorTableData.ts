@@ -132,8 +132,8 @@ export const useEvaluatorTableData = ({
             ? jobConfig.evalTemplate.projectId
               ? "User maintained"
               : jobConfig.evalTemplate.name.startsWith(RAGAS_TEMPLATE_PREFIX)
-                ? "EvalBear and Ragas maintained"
-                : "EvalBear maintained"
+                ? "EvalBear 和 Ragas 维护"
+                : "EvalBear 维护"
             : "Not available",
           totalCost: costData,
           isLegacy: isLegacyEvalTarget(jobConfig.targetObject),

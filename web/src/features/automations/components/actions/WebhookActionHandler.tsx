@@ -140,7 +140,7 @@ export class WebhookActionHandler implements BaseActionHandler<WebhookActionForm
             defaultHeaderKeys.includes(header.name.trim().toLowerCase())
           ) {
             errors.push(
-              `Header ${index + 1}: "${header.name}" is automatically added by EvalBear and cannot be customized`,
+              `头部 ${index + 1}："${header.name}" 由 EvalBear 自动添加，不能自定义`,
             );
           }
         }

@@ -82,6 +82,13 @@ export default function RunDetailPage() {
         ).toFixed(1)
       : "—";
   const traceId = selected?.raw?.langfuse_trace_id as string | undefined;
+  const traceProjectId = selected?.raw?.langfuse_trace_project_id as
+    | string
+    | undefined;
+  const traceLinkProject = traceProjectId || projectId;
+  const traceCrossProject = Boolean(
+    traceProjectId && traceProjectId !== projectId,
+  );
 
   return (
     <Page headerProps={{ title: `运行详情` }} scrollable withPadding>
@@ -262,12 +269,22 @@ export default function RunDetailPage() {
                       </div>
                     )}
                     {traceId ? (
-                      <Button asChild variant="outline" size="sm">
-                        <Link href={`/project/${projectId}/traces/${traceId}`}>
-                          <ExternalLink className="mr-1 h-3 w-3" />
-                          查看 Langfuse 追踪
-                        </Link>
-                      </Button>
+                      <div className="space-y-1">
+                        <Button asChild variant="outline" size="sm">
+                          <Link
+                            href={`/project/${traceLinkProject}/traces/${traceId}`}
+                          >
+                            <ExternalLink className="mr-1 h-3 w-3" />
+                            查看 Langfuse 追踪
+                          </Link>
+                        </Button>
+                        {traceCrossProject && (
+                          <p className="text-muted-foreground text-xs">
+                            该追踪发布在其他 Langfuse 项目（{traceProjectId}
+                            ），若当前账号无该项目权限可能无法打开。
+                          </p>
+                        )}
+                      </div>
                     ) : (
                       <p className="text-muted-foreground text-xs">
                         暂无追踪链接

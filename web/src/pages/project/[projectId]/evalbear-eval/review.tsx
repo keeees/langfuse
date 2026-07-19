@@ -16,6 +16,10 @@ import type {
   EvalTrial,
   HumanEvalRequest,
 } from "@/src/features/evalbear/types";
+import {
+  getTraceLink,
+  crossProjectTraceHint,
+} from "@/src/features/evalbear/trace-link";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
@@ -105,7 +109,10 @@ export default function TrialReviewPage() {
     }
   };
 
-  const traceId = selected?.raw?.langfuse_trace_id as string | undefined;
+  const { traceId, linkProject, crossProject, traceProjectId } = getTraceLink(
+    selected?.raw,
+    projectId,
+  );
 
   return (
     <Page headerProps={{ title: "样本复核" }} scrollable withPadding>
@@ -271,12 +278,19 @@ export default function TrialReviewPage() {
                 )}
 
                 {traceId ? (
-                  <Button asChild variant="outline" size="sm">
-                    <Link href={`/project/${projectId}/traces/${traceId}`}>
-                      <ExternalLink className="mr-1 h-3 w-3" />
-                      查看 Langfuse 追踪
-                    </Link>
-                  </Button>
+                  <div className="space-y-1">
+                    <Button asChild variant="outline" size="sm">
+                      <Link href={`/project/${linkProject}/traces/${traceId}`}>
+                        <ExternalLink className="mr-1 h-3 w-3" />
+                        查看 Langfuse 追踪
+                      </Link>
+                    </Button>
+                    {crossProject && traceProjectId && (
+                      <p className="text-muted-foreground text-xs">
+                        {crossProjectTraceHint(traceProjectId)}
+                      </p>
+                    )}
+                  </div>
                 ) : (
                   <p className="text-muted-foreground text-xs">暂无追踪链接</p>
                 )}

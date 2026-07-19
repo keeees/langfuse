@@ -22,6 +22,10 @@ import type {
   EvalEvent,
   EvalArtifact,
 } from "@/src/features/evalbear/types";
+import {
+  getTraceLink,
+  crossProjectTraceHint,
+} from "@/src/features/evalbear/trace-link";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
@@ -81,14 +85,12 @@ export default function RunDetailPage() {
           100
         ).toFixed(1)
       : "—";
-  const traceId = selected?.raw?.langfuse_trace_id as string | undefined;
-  const traceProjectId = selected?.raw?.langfuse_trace_project_id as
-    | string
-    | undefined;
-  const traceLinkProject = traceProjectId || projectId;
-  const traceCrossProject = Boolean(
-    traceProjectId && traceProjectId !== projectId,
-  );
+  const {
+    traceId,
+    traceProjectId,
+    linkProject: traceLinkProject,
+    crossProject: traceCrossProject,
+  } = getTraceLink(selected?.raw, projectId);
 
   return (
     <Page headerProps={{ title: `运行详情` }} scrollable withPadding>
@@ -278,10 +280,9 @@ export default function RunDetailPage() {
                             查看 Langfuse 追踪
                           </Link>
                         </Button>
-                        {traceCrossProject && (
+                        {traceCrossProject && traceProjectId && (
                           <p className="text-muted-foreground text-xs">
-                            该追踪发布在其他 Langfuse 项目（{traceProjectId}
-                            ），若当前账号无该项目权限可能无法打开。
+                            {crossProjectTraceHint(traceProjectId)}
                           </p>
                         )}
                       </div>

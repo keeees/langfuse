@@ -11,6 +11,10 @@ import {
   TableRow,
 } from "@/src/components/ui/table";
 import { cn } from "@/src/utils/tailwind";
+import {
+  getTraceLink,
+  crossProjectTraceHint,
+} from "@/src/features/evalbear/trace-link";
 import { ExternalLink, RefreshCw } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -83,12 +87,6 @@ function formatTime(value?: string): string {
   const parsed = new Date(value);
   if (Number.isNaN(parsed.getTime())) return value;
   return parsed.toLocaleString();
-}
-
-function getTraceId(trial: TrialRecord): string | null {
-  const rawTrace = trial.raw?.langfuse_trace_id;
-  if (typeof rawTrace === "string" && rawTrace.length > 0) return rawTrace;
-  return null;
 }
 
 function getEvalWebUrl(projectId?: string): string {
@@ -402,7 +400,8 @@ export default function EvalBearEvalPage() {
               </TableHeader>
               <TableBody>
                 {trials.map((trial, index) => {
-                  const traceId = getTraceId(trial);
+                  const { traceId, linkProject, crossProject, traceProjectId } =
+                    getTraceLink(trial.raw, projectId);
                   return (
                     <TableRow key={trial.id ?? trial.trial_id ?? index}>
                       <TableCell className="truncate font-mono">
@@ -422,13 +421,24 @@ export default function EvalBearEvalPage() {
                           : "-"}
                       </TableCell>
                       <TableCell>
-                        {traceId && projectId ? (
-                          <Button asChild variant="ghost" size="sm">
+                        {traceId && linkProject ? (
+                          <Button
+                            asChild
+                            variant="ghost"
+                            size="sm"
+                            title={
+                              crossProject && traceProjectId
+                                ? crossProjectTraceHint(traceProjectId)
+                                : undefined
+                            }
+                          >
                             <Link
-                              href={`/project/${projectId}/traces/${traceId}`}
+                              href={`/project/${linkProject}/traces/${traceId}`}
                             >
                               <ExternalLink className="h-3 w-3" />
-                              <span className="ml-1">查看</span>
+                              <span className="ml-1">
+                                {crossProject ? "查看（跨项目）" : "查看"}
+                              </span>
                             </Link>
                           </Button>
                         ) : (
